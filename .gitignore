@@ -1,0 +1,12 @@
+# Archivos temporales de Word (se crean al abrir un .docx)
+~$*.docx
+~$*.doc
+
+# Python
+__pycache__/
+*.pyc
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store

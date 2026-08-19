@@ -13,7 +13,8 @@ Quien genere el material debe: leer `criterios_pedagogicos.md`, leer `docente.md
 ## Reglas fijas que la plantilla asume
 
 * Exactamente 2 objetivos, 3 ejemplos resueltos y 15 problemas por clase.
-* Las expresiones matematicas se escriben entre \( y \) para que salgan como ecuaciones de Word.
+* Las expresiones matematicas se escriben entre $` y `$ para que salgan como ecuaciones de Word y se vean bien en GitHub.
+* Los items a), b), c) de cada ejercicio van uno por linea, como sublista con tres espacios de sangria.
 * Sin minutaje interno. Sin líneas divisorias (`---`).
 * Contexto colombiano y pesos colombianos cuando sea natural.
 * Cada concepto: idea intuitiva → explicación → ejemplo → aplicación.
@@ -85,7 +86,9 @@ Resuelve en tu cuaderno.
 
 **Comprensión**
 
-1. [ ]
+1. [enunciado]
+   - a) [item]
+   - b) [item]
 2. [ ]
 3. [ ]
 4. [ ]

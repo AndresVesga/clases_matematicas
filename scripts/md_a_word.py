@@ -25,11 +25,11 @@ listas numeradas (1. 2. 3.) y tablas simples con |.
 No usa lineas divisorias porque el proyecto no las utiliza.
 
 MATEMATICAS
-Lo que va entre \\( y \\) se convierte en una ecuacion de verdad de Word,
+Lo que va entre $` y `$ se convierte en una ecuacion de verdad de Word,
 con fracciones, raices y exponentes bien formados. Por ejemplo,
-\\(\\frac{2}{3}\\) sale como una fraccion con su raya horizontal.
-Se usan esos delimitadores y no el signo de pesos porque el peso colombiano
-aparece constantemente en los enunciados.
+$`\\frac{2}{3}`$ sale como una fraccion con su raya horizontal.
+Se usa ese delimitador, y no el signo de pesos, por dos razones: GitHub lo
+renderiza igual, y no choca con los precios en pesos de los enunciados.
 """
 
 import io
@@ -51,10 +51,12 @@ NOMBRE_CONSOLIDADO = "Matematicas_Unidad_Numeros_Reales_y_Complejos.docx"
 TITULO_CONSOLIDADO = "Matematicas. Numeros reales y numeros complejos"
 
 RE_TABLA_SEP = re.compile(r"^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$")
-RE_VINETA = re.compile(r"^\s*\*\s+(.*)$")
+RE_VINETA = re.compile(r"^(\s*)[-*]\s+(.*)$")
 RE_NUMERO = re.compile(r"^\s*(\d+)\.\s+(.*)$")
-# Formula en medio de una frase: \( ... \)
-RE_MATE = re.compile(r"\\\((.+?)\\\)", re.S)
+# Formula en medio de una frase: $`...`$
+# Es el mismo delimitador que GitHub sabe renderizar, y no choca con los
+# precios en pesos, que aparecen en casi todos los enunciados.
+RE_MATE = re.compile(r"\$`(.+?)`\$", re.S)
 
 # Tipografia del documento. Cambria es la serif que Word trae de fabrica y
 # es la pareja natural de Cambria Math, la fuente de las ecuaciones: asi el
@@ -92,7 +94,7 @@ def escribir_plano(parrafo, texto):
 def escribir_texto(parrafo, texto):
     """Escribe una linea mezclando texto normal y ecuaciones.
 
-    Todo lo que este entre \\( y \\) se inserta como ecuacion de Word.
+    Todo lo que este entre $` y `$ se inserta como ecuacion de Word.
     """
     posicion = 0
     for formula in RE_MATE.finditer(texto):
@@ -157,11 +159,13 @@ def volcar_markdown(doc, texto, desplazar_titulos=0):
             i += 1
             continue
 
-        # Vinetas
+        # Vinetas. Una viñeta indentada (los items a, b, c de un ejercicio)
+        # queda como sublista, un nivel adentro.
         m = RE_VINETA.match(linea)
         if m:
-            parrafo = doc.add_paragraph(style="List Bullet")
-            escribir_texto(parrafo, m.group(1))
+            estilo = "List Bullet 2" if len(m.group(1)) >= 2 else "List Bullet"
+            parrafo = doc.add_paragraph(style=estilo)
+            escribir_texto(parrafo, m.group(2))
             i += 1
             continue
 

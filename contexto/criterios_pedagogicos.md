@@ -69,10 +69,19 @@ Se usan solo donde aportan; el documento no se convierte en un cuestionario.
 * Sin líneas divisorias: no se usa `---` ni separadores decorativos equivalentes. La jerarquía se logra con títulos, subtítulos, listas y espacios.
 * Sin minutaje por secciones.
 * Lectura visualmente ligera: bloques cortos, listas, tablas pequeñas, negrita para lo esencial.
-* Notación matemática **entre \( y \)**: todo lo que va ahí se convierte en una ecuación real de Word (fracciones con raya, raíces con cajón, exponentes bien formados). Por ejemplo se escribe `\(\frac{2}{3}\)` y no `2/3`, `\(\sqrt{-9}\)` y no `√(−9)`, `\(2^{5}\)` y no `2⁵`.
-* Se usan esos delimitadores y no el signo de pesos porque el peso colombiano aparece en casi todos los enunciados: `$3.200` debe seguir siendo texto normal.
+* Notación matemática **entre `` $` `` y `` `$ ``**: todo lo que va ahí se convierte en una ecuación real de Word (fracciones con raya, raíces con cajón, exponentes bien formados) y GitHub la renderiza igual. Se escribe `` $`\frac{2}{3}`$ `` y no `2/3`; `` $`\sqrt{-9}`$ `` y no `√(−9)`; `` $`2^{5}`$ `` y no `2⁵`.
+* Se usa ese delimitador y no el signo de pesos suelto porque el peso colombiano aparece en casi todos los enunciados: `$3.200` debe seguir siendo texto normal.
 * Comandos disponibles: `\frac{}{}`, `\sqrt{}`, `\sqrt[n]{}`, `^{}`, `_{}`, `\times`, `\div`, `\cdot`, `\pm`, `\approx`, `\le`, `\ge`, `\ne`, `\pi`, `\ldots`, `\overline{}`, `\mathbb{R}`, `\left( \right)`, `\text{}`.
-* Las unidades y el dinero van **fuera** de la ecuación: `\(6\times 225=1.350\) cm²`, no dentro.
+* Las unidades y el dinero van **fuera** de la fórmula: `` $`6\times 225=1.350`$ `` cm², no dentro.
+* **Los ítems a), b), c) de un ejercicio van en vertical**, como sublista, uno por línea:
+
+```
+1. Calcula:
+   - a) ...
+   - b) ...
+```
+
+* **Un párrafo por línea, separados por una línea en blanco.** Dos líneas seguidas sin línea en blanco entre ellas quedan pegadas como un solo párrafo en GitHub.
 
 ## Validación matemática
 

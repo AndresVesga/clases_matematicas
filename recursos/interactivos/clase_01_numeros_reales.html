@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clase 1 · Los números reales y sus familias</title>
+<style>
+  :root{
+    --fondo:#f6f7fb; --tarjeta:#ffffff; --texto:#1c2434; --suave:#5b6780;
+    --borde:#dfe3ec; --acento:#2f5fd0; --acento-suave:#e8eefc;
+    --bien:#0f7a52; --bien-suave:#e2f5ec; --mal:#b3261e; --mal-suave:#fdeceb;
+    --sombra:0 1px 2px rgba(20,30,60,.06), 0 8px 24px rgba(20,30,60,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --fondo:#11151f; --tarjeta:#1a2030; --texto:#e8ecf5; --suave:#a3adc2;
+      --borde:#2b3346; --acento:#7ea3f5; --acento-suave:#1e2a45;
+      --bien:#6fd7a8; --bien-suave:#122c22; --mal:#ff9b93; --mal-suave:#2e1917;
+      --sombra:none;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--fondo); color:var(--texto);
+    font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    line-height:1.55; padding:0 16px 64px;
+  }
+  .envoltura{max-width:820px; margin:0 auto}
+  header{padding:40px 0 8px}
+  h1{font-size:1.7rem; margin:0 0 6px; letter-spacing:-.02em}
+  .subtitulo{color:var(--suave); margin:0 0 4px}
+  .marcador{
+    position:sticky; top:0; z-index:5; background:var(--fondo);
+    padding:12px 0; border-bottom:1px solid var(--borde); margin-bottom:24px;
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .barra{flex:1; min-width:140px; height:9px; background:var(--borde); border-radius:99px; overflow:hidden}
+  .barra i{display:block; height:100%; width:0; background:var(--acento); transition:width .35s ease}
+  .marcador b{font-variant-numeric:tabular-nums}
+  button{font:inherit; cursor:pointer}
+  .reiniciar{
+    background:none; border:1px solid var(--borde); color:var(--suave);
+    padding:6px 12px; border-radius:8px;
+  }
+  .reiniciar:hover{border-color:var(--acento); color:var(--acento)}
+
+  section{
+    background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px;
+    padding:22px 22px 26px; margin-bottom:22px; box-shadow:var(--sombra);
+  }
+  section h2{font-size:1.15rem; margin:0 0 2px; display:flex; align-items:center; gap:9px}
+  .num{
+    background:var(--acento-suave); color:var(--acento); font-size:.8rem;
+    width:26px; height:26px; border-radius:8px; display:grid; place-items:center; flex:none;
+  }
+  .instruccion{color:var(--suave); margin:0 0 18px; font-size:.94rem}
+
+  .pregunta{border-top:1px solid var(--borde); padding:16px 0 4px}
+  .pregunta:first-of-type{border-top:none; padding-top:4px}
+  .enunciado{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px}
+  .valor{font-size:1.45rem; font-family:Cambria,Georgia,serif; min-width:78px}
+  .opciones{display:flex; gap:8px; flex-wrap:wrap}
+  .opcion{
+    background:var(--tarjeta); border:1px solid var(--borde); color:var(--texto);
+    padding:7px 14px; border-radius:99px; transition:.15s;
+  }
+  .opcion:hover:not(:disabled){border-color:var(--acento); color:var(--acento)}
+  .opcion:disabled{cursor:default; opacity:.55}
+  .opcion.bien{background:var(--bien-suave); border-color:var(--bien); color:var(--bien); opacity:1; font-weight:600}
+  .opcion.mal{background:var(--mal-suave); border-color:var(--mal); color:var(--mal); opacity:1}
+  .explicacion{
+    font-size:.92rem; color:var(--suave); background:var(--acento-suave);
+    border-radius:10px; padding:10px 13px; margin-top:10px; display:none;
+  }
+  .explicacion.visible{display:block}
+
+  /* Actividad de ordenar */
+  .fichas{display:flex; gap:9px; flex-wrap:wrap; margin-bottom:14px}
+  .ficha{
+    font-family:Cambria,Georgia,serif; font-size:1.25rem;
+    background:var(--tarjeta); border:1px solid var(--borde); color:var(--texto);
+    padding:9px 16px; border-radius:10px; transition:.15s;
+  }
+  .ficha:hover:not(:disabled){border-color:var(--acento); transform:translateY(-2px)}
+  .ficha:disabled{opacity:.3; cursor:default}
+  .ficha.error{animation:tiembla .3s; border-color:var(--mal); color:var(--mal)}
+  @keyframes tiembla{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .ranura{
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    background:var(--fondo); border:1px dashed var(--borde);
+    border-radius:10px; padding:12px; min-height:56px;
+  }
+  .ranura .puesta{
+    font-family:Cambria,Georgia,serif; font-size:1.2rem;
+    background:var(--bien-suave); color:var(--bien); border-radius:8px; padding:5px 12px;
+  }
+  .ranura .flecha{color:var(--suave)}
+  .etiqueta-ronda{font-size:.85rem; color:var(--suave); margin:0 0 8px}
+
+  /* Notacion matematica sin librerias */
+  .raiz{white-space:nowrap}
+  .raiz > i{border-top:1.5px solid currentColor; padding:0 3px 0 1px; font-style:normal; margin-left:-2px}
+  .frac{display:inline-flex; flex-direction:column; text-align:center;
+        vertical-align:-.55em; font-size:.78em; line-height:1.15; margin:0 .1em}
+  .frac > span:first-child{padding:0 .3em}
+  .frac > span:last-child{border-top:1.4px solid currentColor; padding:0 .3em}
+
+  .cierre{
+    background:var(--acento-suave); border:1px solid var(--acento);
+    border-radius:14px; padding:20px 22px; text-align:center; display:none;
+  }
+  .cierre.visible{display:block}
+  .cierre h2{justify-content:center; border:none}
+  footer{color:var(--suave); font-size:.85rem; text-align:center; padding-top:8px}
+</style>
+</head>
+<body>
+<div class="envoltura">
+
+<header>
+  <h1>Los números reales y sus familias</h1>
+  <p class="subtitulo">Clase 1 · Practica lo que vimos y comprueba tus respuestas al instante.</p>
+</header>
+
+<div class="marcador">
+  <div class="barra"><i id="progreso"></i></div>
+  <span><b id="aciertos">0</b> / <b id="total">0</b> correctas</span>
+  <button class="reiniciar" onclick="location.reload()">Empezar de nuevo</button>
+</div>
+
+<section>
+  <h2><span class="num">1</span> ¿A qué familia pertenece?</h2>
+  <p class="instruccion">Escoge la familia <strong>más pequeña</strong> a la que pertenece cada número. Recuerda: primero calcula, después clasifica.</p>
+  <div id="clasificar"></div>
+</section>
+
+<section>
+  <h2><span class="num">2</span> El truco del decimal</h2>
+  <p class="instruccion">Mira cómo se comporta la parte decimal. Si se corta o se repite con un patrón, es racional. Si es infinita y sin patrón, es irracional.</p>
+  <div id="decimal"></div>
+</section>
+
+<section>
+  <h2><span class="num">3</span> Ordena de menor a mayor</h2>
+  <p class="instruccion">Haz clic en los números en orden, del más pequeño al más grande. Piensa en la recta numérica: el que está más a la izquierda va primero.</p>
+  <div id="ordenar"></div>
+</section>
+
+<section>
+  <h2><span class="num">4</span> ¿Entre qué enteros está la raíz?</h2>
+  <p class="instruccion">Busca los dos cuadrados perfectos que encierran al número de adentro. Por ejemplo, como 25 &lt; 30 &lt; 36, entonces √30 está entre 5 y 6.</p>
+  <div id="raices"></div>
+</section>
+
+<div class="cierre" id="cierre">
+  <h2>¡Terminaste!</h2>
+  <p id="mensajeCierre"></p>
+</div>
+
+<footer>Material de apoyo de la clase 1. El contenido sale de <code>clases/clase_01.md</code>.</footer>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   Ayudas para escribir matemáticas sin usar ninguna librería externa.
+------------------------------------------------------------------ */
+function raiz(radicando, indice){
+  var ind = indice ? '<sup style="font-size:.6em">' + indice + '</sup>' : '';
+  return '<span class="raiz">' + ind + '&radic;<i>' + radicando + '</i></span>';
+}
+function frac(arriba, abajo){
+  return '<span class="frac"><span>' + arriba + '</span><span>' + abajo + '</span></span>';
+}
+
+/* ------------------------------------------------------------------
+   Marcador
+------------------------------------------------------------------ */
+var aciertos = 0, totalPreguntas = 0, respondidas = 0;
+
+function registrar(correcta){
+  respondidas++;
+  if (correcta) aciertos++;
+  document.getElementById('aciertos').textContent = aciertos;
+  document.getElementById('progreso').style.width =
+    (respondidas / totalPreguntas * 100) + '%';
+  if (respondidas === totalPreguntas) mostrarCierre();
+}
+
+function mostrarCierre(){
+  var caja = document.getElementById('cierre');
+  var texto;
+  var p = aciertos / totalPreguntas;
+  if (p === 1)      texto = 'Perfecto: ' + aciertos + ' de ' + totalPreguntas + '. Dominas la clasificación de los números reales.';
+  else if (p >= .8) texto = 'Muy bien: ' + aciertos + ' de ' + totalPreguntas + '. Revisa solo las que fallaste y quedas listo.';
+  else if (p >= .5) texto = 'Vas por buen camino: ' + aciertos + ' de ' + totalPreguntas + '. Vuelve a leer las explicaciones de las que fallaste.';
+  else              texto = aciertos + ' de ' + totalPreguntas + '. Repasa la clase y vuelve a intentarlo: lo importante es entender por qué, no acertar de una.';
+  document.getElementById('mensajeCierre').textContent = texto;
+  caja.classList.add('visible');
+  caja.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+/* ------------------------------------------------------------------
+   Actividad 1 y 2: preguntas de opción múltiple
+------------------------------------------------------------------ */
+var FAMILIAS = ['Natural', 'Entero', 'Racional', 'Irracional'];
+
+var clasificar = [
+  {v:'7',                      r:'Natural',    e:'7 sirve para contar y no tiene signo negativo ni parte decimal.'},
+  {v:'&minus;3',               r:'Entero',     e:'Lleva signo negativo, así que no es natural. Los negativos enteros son enteros.'},
+  {v:'0,5',                    r:'Racional',   e:'Decimal finito. Se puede escribir como ' + frac(1,2) + ', una fracción de enteros.'},
+  {v:raiz(36),                 r:'Natural',    e:'Primero se calcula: √36 = 6. El símbolo de raíz engaña, pero el resultado es un natural.'},
+  {v:raiz(5),                  r:'Irracional', e:'5 no es cuadrado perfecto. √5 ≈ 2,2360679… con decimales infinitos y sin patrón.'},
+  {v:'&minus;' + frac(8,3),    r:'Racional',   e:'Es una fracción de enteros, y no da un entero exacto: −8 ÷ 3 = −2,666…'},
+  {v:'0',                      r:'Natural',    e:'En este curso el 0 se incluye entre los naturales.'},
+  {v:'&pi;',                   r:'Irracional', e:'π = 3,14159265… nunca termina ni repite un patrón. Ninguna fracción lo da exacto.'},
+  {v:frac(12,4),               r:'Natural',    e:'Cuidado con la trampa: 12 ÷ 4 = 3, que es natural. Siempre calcula antes de clasificar.'},
+  {v:'&minus;' + raiz(9),      r:'Entero',     e:'√9 = 3, y con el menos delante queda −3: un entero.'},
+  {v:'2,171717…',              r:'Racional',   e:'El bloque 17 se repite: hay patrón, así que es racional.'},
+  {v:'1,010010001…',           r:'Irracional', e:'Los ceros van aumentando, así que nunca se repite el mismo bloque. No hay patrón.'},
+  {v:'&minus;0,75',            r:'Racional',   e:'Decimal finito: equivale a −' + frac(3,4) + '.'},
+  {v:raiz(2),                  r:'Irracional', e:'√2 ≈ 1,4142135… Es el ejemplo clásico de número irracional.'},
+  {v:raiz(100),                r:'Natural',    e:'√100 = 10. Raíz exacta, y el resultado sirve para contar.'}
+];
+
+var decimal = [
+  {v:'0,75',          r:'Racional',   e:'Se corta. Todo decimal finito es racional: 0,75 = ' + frac(3,4) + '.'},
+  {v:'0,3333…',       r:'Racional',   e:'El 3 se repite sin parar: hay patrón. Equivale a ' + frac(1,3) + '.'},
+  {v:'1,4142135…',    r:'Irracional', e:'Es el decimal de √2: infinito y sin ningún patrón.'},
+  {v:'2,171717…',     r:'Racional',   e:'Se repite el bloque 17. Periódico, entonces racional.'},
+  {v:'3,14159265…',   r:'Irracional', e:'Es π. Se han calculado billones de decimales y nunca aparece un patrón.'},
+  {v:'0,125',         r:'Racional',   e:'Finito: 0,125 = ' + frac(1,8) + '.'},
+  {v:'0,101001000…',  r:'Irracional', e:'Cada vez hay un cero más, así que el bloque nunca se repite igual.'},
+  {v:'0,999…',        r:'Racional',   e:'El 9 se repite, así que es racional. Dato curioso: 0,999… es exactamente igual a 1.'}
+];
+
+function pintarOpcionMultiple(idContenedor, datos, opciones){
+  var caja = document.getElementById(idContenedor);
+  datos.forEach(function(dato, i){
+    totalPreguntas++;
+    var p = document.createElement('div');
+    p.className = 'pregunta';
+
+    var fila = document.createElement('div');
+    fila.className = 'enunciado';
+    var val = document.createElement('span');
+    val.className = 'valor';
+    val.innerHTML = dato.v;
+    fila.appendChild(val);
+
+    var grupo = document.createElement('div');
+    grupo.className = 'opciones';
+    opciones.forEach(function(op){
+      var b = document.createElement('button');
+      b.className = 'opcion';
+      b.textContent = op;
+      b.onclick = function(){
+        var correcta = (op === dato.r);
+        grupo.querySelectorAll('button').forEach(function(otro){
+          otro.disabled = true;
+          if (otro.textContent === dato.r) otro.classList.add('bien');
+        });
+        if (!correcta) b.classList.add('mal');
+        exp.innerHTML = (correcta ? '<strong>Correcto.</strong> ' : '<strong>La respuesta es ' + dato.r + '.</strong> ') + dato.e;
+        exp.classList.add('visible');
+        registrar(correcta);
+      };
+      grupo.appendChild(b);
+    });
+    fila.appendChild(grupo);
+
+    var exp = document.createElement('div');
+    exp.className = 'explicacion';
+
+    p.appendChild(fila);
+    p.appendChild(exp);
+    caja.appendChild(p);
+  });
+}
+
+/* ------------------------------------------------------------------
+   Actividad 3: ordenar de menor a mayor
+------------------------------------------------------------------ */
+var rondas = [
+  {
+    titulo:'Ronda 1 · números de clase',
+    items:[
+      {t:'&minus;2', n:-2}, {t:'&minus;' + frac(3,2), n:-1.5}, {t:frac(1,3), n:0.3333},
+      {t:'0,75', n:0.75}, {t:raiz(9), n:3}
+    ]
+  },
+  {
+    titulo:'Ronda 2 · temperaturas de Colombia (°C)',
+    items:[
+      {t:'&minus;4,2', n:-4.2}, {t:'&minus;1,5', n:-1.5}, {t:'8,5', n:8.5},
+      {t:'26,7', n:26.7}, {t:'31', n:31}
+    ]
+  },
+  {
+    titulo:'Ronda 3 · mezcla difícil',
+    items:[
+      {t:'&minus;' + raiz(16), n:-4}, {t:'&minus;0,5', n:-0.5}, {t:'0', n:0},
+      {t:raiz(2), n:1.4142}, {t:'&pi;', n:3.1416}
+    ]
+  }
+];
+
+function pintarOrdenar(){
+  var caja = document.getElementById('ordenar');
+  rondas.forEach(function(ronda){
+    totalPreguntas++;
+    var bloque = document.createElement('div');
+    bloque.className = 'pregunta';
+
+    var tit = document.createElement('p');
+    tit.className = 'etiqueta-ronda';
+    tit.textContent = ronda.titulo;
+    bloque.appendChild(tit);
+
+    var fichas = document.createElement('div');
+    fichas.className = 'fichas';
+    var ranura = document.createElement('div');
+    ranura.className = 'ranura';
+    var exp = document.createElement('div');
+    exp.className = 'explicacion';
+
+    var orden = ronda.items.slice().sort(function(a,b){ return a.n - b.n; });
+    var siguiente = 0, fallos = 0;
+
+    ronda.items.forEach(function(item){
+      var b = document.createElement('button');
+      b.className = 'ficha';
+      b.innerHTML = item.t;
+      b.onclick = function(){
+        if (item.n === orden[siguiente].n){
+          b.disabled = true;
+          if (siguiente > 0){
+            var fl = document.createElement('span');
+            fl.className = 'flecha';
+            fl.textContent = '<';
+            ranura.appendChild(fl);
+          }
+          var puesta = document.createElement('span');
+          puesta.className = 'puesta';
+          puesta.innerHTML = item.t;
+          ranura.appendChild(puesta);
+          siguiente++;
+          if (siguiente === orden.length){
+            exp.innerHTML = fallos === 0
+              ? '<strong>Perfecto, sin errores.</strong> Ese es el orden en la recta numérica.'
+              : '<strong>Completo.</strong> Tuviste ' + fallos + (fallos === 1 ? ' intento fallido' : ' intentos fallidos') + '. Recuerda que entre negativos, mientras más grande se ve el número, más pequeño es su valor.';
+            exp.classList.add('visible');
+            fichas.querySelectorAll('button').forEach(function(x){ x.disabled = true; });
+            registrar(fallos === 0);
+          }
+        } else {
+          fallos++;
+          b.classList.add('error');
+          setTimeout(function(){ b.classList.remove('error'); }, 320);
+        }
+      };
+      fichas.appendChild(b);
+    });
+
+    bloque.appendChild(fichas);
+    bloque.appendChild(ranura);
+    bloque.appendChild(exp);
+    caja.appendChild(bloque);
+  });
+}
+
+/* ------------------------------------------------------------------
+   Actividad 4: encajar raíces entre enteros
+------------------------------------------------------------------ */
+var raices = [
+  {n:30,  r:'5 y 6',   e:'5 × 5 = 25 y 6 × 6 = 36. Como 25 < 30 < 36, la raíz queda entre 5 y 6.'},
+  {n:20,  r:'4 y 5',   e:'16 < 20 < 25, así que √20 ≈ 4,47 está entre 4 y 5.'},
+  {n:50,  r:'7 y 8',   e:'49 < 50 < 64. Y como 50 está pegadito a 49, √50 ≈ 7,07.'},
+  {n:90,  r:'9 y 10',  e:'81 < 90 < 100, entonces √90 ≈ 9,49.'},
+  {n:45,  r:'6 y 7',   e:'36 < 45 < 49, así que √45 ≈ 6,7.'},
+  {n:150, r:'12 y 13', e:'144 < 150 < 169. Es el lote de 150 m² del ejercicio 14: el lado mide unos 12,25 m.'}
+];
+
+function pintarRaices(){
+  var caja = document.getElementById('raices');
+  raices.forEach(function(dato){
+    totalPreguntas++;
+    var base = parseInt(dato.r);
+    var opciones = [
+      (base - 1) + ' y ' + base,
+      dato.r,
+      (base + 1) + ' y ' + (base + 2)
+    ];
+    // Se barajan para que la correcta no quede siempre en el mismo puesto.
+    for (var k = opciones.length - 1; k > 0; k--){
+      var j = Math.floor(Math.random() * (k + 1));
+      var tmp = opciones[k]; opciones[k] = opciones[j]; opciones[j] = tmp;
+    }
+
+    var p = document.createElement('div');
+    p.className = 'pregunta';
+    var fila = document.createElement('div');
+    fila.className = 'enunciado';
+    var val = document.createElement('span');
+    val.className = 'valor';
+    val.innerHTML = raiz(dato.n);
+    fila.appendChild(val);
+
+    var grupo = document.createElement('div');
+    grupo.className = 'opciones';
+    var exp = document.createElement('div');
+    exp.className = 'explicacion';
+
+    opciones.forEach(function(op){
+      var b = document.createElement('button');
+      b.className = 'opcion';
+      b.textContent = 'entre ' + op;
+      b.onclick = function(){
+        var correcta = (op === dato.r);
+        grupo.querySelectorAll('button').forEach(function(otro){
+          otro.disabled = true;
+          if (otro.textContent === 'entre ' + dato.r) otro.classList.add('bien');
+        });
+        if (!correcta) b.classList.add('mal');
+        exp.innerHTML = (correcta ? '<strong>Correcto.</strong> ' : '<strong>No.</strong> ') + dato.e;
+        exp.classList.add('visible');
+        registrar(correcta);
+      };
+      grupo.appendChild(b);
+    });
+
+    fila.appendChild(grupo);
+    p.appendChild(fila);
+    p.appendChild(exp);
+    caja.appendChild(p);
+  });
+}
+
+/* ------------------------------------------------------------------ */
+pintarOpcionMultiple('clasificar', clasificar, FAMILIAS);
+pintarOpcionMultiple('decimal', decimal, ['Racional', 'Irracional']);
+pintarOrdenar();
+pintarRaices();
+document.getElementById('total').textContent = totalPreguntas;
+</script>
+</body>
+</html>

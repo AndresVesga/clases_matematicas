@@ -14,7 +14,7 @@ Contenido actual: una unidad de **6 clases de 80 minutos** sobre números reales
 | `banco_ejercicios/` | Ejercicios extra por clase, con respuestas, para tarea o refuerzo. |
 | `entregables/word/` | Los documentos `.docx` generados. Se pueden abrir, editar e imprimir. |
 | `scripts/` | Los dos programas que convierten las clases a Word. |
-| `recursos/` | Espacio para material complementario y futuras actividades interactivas. |
+| `recursos/` | Material de apoyo: prácticas interactivas y talleres para imprimir. |
 
 ## Dónde modificar una clase
 
@@ -117,6 +117,15 @@ En **`contexto/criterios_pedagogicos.md`**. Ese archivo manda: define el nivel e
 
 Si quieres cambiar cómo se escriben las clases, cambia ese archivo y no cada clase por separado.
 
+## Recursos de apoyo
+
+Además de las clases y los Word, la carpeta `recursos/` tiene dos cosas para la clase 1:
+
+* **`recursos/interactivos/clase_01_numeros_reales.html`** — práctica para pantalla, con 32 preguntas que se corrigen solas y explican el porqué de cada respuesta. Sirve para sala de sistemas, para el celular o como repaso en casa.
+* **`recursos/imprimibles/clase_01_actividad_imprimible.html`** — taller de dos hojas con dibujos para repartir físicamente. Se abre en el navegador y se imprime con Ctrl+P; la hoja 3 es el solucionario del docente, así que al imprimir hay que escoger **páginas 1-2**.
+
+Los dos se abren con doble clic. No necesitan internet ni instalar nada. Los detalles están en `recursos/LEEME.md`.
+
 ## Más adelante
 
-La carpeta `recursos/interactivos/` está reservada para actividades sencillas en HTML (quizzes, tarjetas de preguntas, verdadero/falso, ejercicios que se autocorrigen). Todavía no hay ninguna, y cuando las haya serán archivos sueltos que se abren con doble clic en el navegador, sin instalar nada.
+Faltan los recursos de las clases 2 a 6. Se pueden pedir igual que estos: "crea la práctica interactiva de la clase 3" o "hazme el taller imprimible de la clase 5".

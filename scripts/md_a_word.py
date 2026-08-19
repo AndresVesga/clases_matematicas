@@ -23,6 +23,13 @@ El script entiende el subconjunto de Markdown que usan las clases:
 titulos (#, ##, ###), parrafos, negrita (**texto**), listas con viñetas (*),
 listas numeradas (1. 2. 3.) y tablas simples con |.
 No usa lineas divisorias porque el proyecto no las utiliza.
+
+MATEMATICAS
+Lo que va entre \\( y \\) se convierte en una ecuacion de verdad de Word,
+con fracciones, raices y exponentes bien formados. Por ejemplo,
+\\(\\frac{2}{3}\\) sale como una fraccion con su raya horizontal.
+Se usan esos delimitadores y no el signo de pesos porque el peso colombiano
+aparece constantemente en los enunciados.
 """
 
 import io
@@ -34,6 +41,9 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt, RGBColor
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from latex_a_omml import omml_de
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARPETA_CLASES = os.path.join(RAIZ, "clases")
 CARPETA_SALIDA = os.path.join(RAIZ, "entregables", "word")
@@ -43,30 +53,53 @@ TITULO_CONSOLIDADO = "Matematicas. Numeros reales y numeros complejos"
 RE_TABLA_SEP = re.compile(r"^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$")
 RE_VINETA = re.compile(r"^\s*\*\s+(.*)$")
 RE_NUMERO = re.compile(r"^\s*(\d+)\.\s+(.*)$")
+# Formula en medio de una frase: \( ... \)
+RE_MATE = re.compile(r"\\\((.+?)\\\)", re.S)
+
+# Tipografia del documento. Cambria es la serif que Word trae de fabrica y
+# es la pareja natural de Cambria Math, la fuente de las ecuaciones: asi el
+# texto y las formulas se ven como un mismo documento y no como un pegote.
+FUENTE = "Cambria"
 
 
 def configurar_estilos(doc):
     """Tipografia comoda de leer e imprimir."""
     normal = doc.styles["Normal"]
-    normal.font.name = "Calibri"
+    normal.font.name = FUENTE
     normal.font.size = Pt(11)
     normal.paragraph_format.space_after = Pt(6)
     normal.paragraph_format.line_spacing = 1.15
     for nombre, tam in (("Heading 1", 18), ("Heading 2", 14), ("Heading 3", 12)):
         estilo = doc.styles[nombre]
-        estilo.font.name = "Calibri"
+        estilo.font.name = FUENTE
         estilo.font.size = Pt(tam)
         estilo.font.bold = True
         estilo.font.color.rgb = RGBColor(0x1F, 0x3B, 0x57)
+        estilo.paragraph_format.space_before = Pt(12)
+        estilo.paragraph_format.space_after = Pt(4)
+        estilo.paragraph_format.keep_with_next = True
 
 
-def escribir_texto(parrafo, texto):
-    """Escribe el texto respetando la negrita **asi**."""
+def escribir_plano(parrafo, texto):
+    """Escribe texto normal respetando la negrita **asi**."""
     for i, trozo in enumerate(texto.split("**")):
         if not trozo:
             continue
         run = parrafo.add_run(trozo)
         run.bold = (i % 2 == 1)
+
+
+def escribir_texto(parrafo, texto):
+    """Escribe una linea mezclando texto normal y ecuaciones.
+
+    Todo lo que este entre \\( y \\) se inserta como ecuacion de Word.
+    """
+    posicion = 0
+    for formula in RE_MATE.finditer(texto):
+        escribir_plano(parrafo, texto[posicion:formula.start()])
+        parrafo._p.append(omml_de(formula.group(1)))
+        posicion = formula.end()
+    escribir_plano(parrafo, texto[posicion:])
 
 
 def agregar_tabla(doc, filas):

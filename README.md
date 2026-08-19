@@ -13,7 +13,7 @@ Contenido actual: una unidad de **6 clases de 80 minutos** sobre números reales
 | `clases/` | **El contenido real de las clases.** Aquí se edita todo. |
 | `banco_ejercicios/` | Ejercicios extra por clase, con respuestas, para tarea o refuerzo. |
 | `entregables/word/` | Los documentos `.docx` generados. Se pueden abrir, editar e imprimir. |
-| `scripts/` | Un programa pequeño que convierte las clases a Word. |
+| `scripts/` | Los dos programas que convierten las clases a Word. |
 | `recursos/` | Espacio para material complementario y futuras actividades interactivas. |
 
 ## Dónde modificar una clase
@@ -26,6 +26,30 @@ Detalles útiles del formato:
 * `#` al comienzo de una línea es un título grande, `##` uno mediano y `###` uno pequeño.
 * El texto entre dos asteriscos, así `**importante**`, sale en **negrita**.
 * Las listas con viñetas empiezan con `*` y las numeradas con `1.`, `2.`, etc.
+
+## Cómo se escriben las fórmulas
+
+Las matemáticas se escriben entre `\(` y `\)`. Todo lo que quede ahí adentro se convierte en una **ecuación de verdad de Word**, con fracciones de dos pisos, raíces con su cajón y exponentes bien puestos. Es el mismo resultado que da el editor de ecuaciones de Word, pero sin tener que usarlo.
+
+| Se escribe | Sale en el Word |
+|---|---|
+| `\(\frac{2}{3}\)` | una fracción con su raya horizontal |
+| `\(\sqrt{72}\)` | una raíz cuadrada con su cajón |
+| `\(\sqrt[3]{27}\)` | una raíz cúbica |
+| `\(2^{5}\)` | 2 con el 5 arriba |
+| `\(Z_{1}\)` | Z con el 1 abajo |
+| `\(3 \times 4\)` | el signo × de multiplicar |
+| `\(\overline{z}\)` | z con la barra del conjugado |
+| `\(\left(\frac{1}{2}\right)\)` | paréntesis que crecen para abarcar la fracción |
+
+Otros comandos que ya funcionan: `\div`, `\cdot`, `\pm`, `\approx`, `\le`, `\ge`, `\ne`, `\pi`, `\ldots`, `\mathbb{R}` (para el símbolo de los reales) y `\text{palabra}` para escribir una palabra dentro de una fórmula.
+
+Dos advertencias:
+
+* **El dinero va por fuera.** `$3.200` se escribe como texto normal. Por eso las fórmulas usan `\(` y no el signo de pesos: si no, todos los precios se convertirían en ecuaciones.
+* **Las unidades también van por fuera:** se escribe `\(6 \times 225 = 1.350\) cm²`, dejando el cm² como texto.
+
+Si escribes un comando que el conversor no conoce, no se rompe nada: sale como palabra normal dentro de la fórmula. La lista completa de lo que entiende está comentada en `scripts/latex_a_omml.py`.
 
 **Los archivos de `clases/` son la fuente principal.** Si editas directamente el Word, ese cambio se pierde la próxima vez que se regeneren los documentos.
 

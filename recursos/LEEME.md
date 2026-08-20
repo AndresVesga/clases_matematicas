@@ -13,6 +13,8 @@ Espacio para material complementario que no es una clase.
 | Archivo | Para qué sirve |
 |---|---|
 | `interactivos/clase_01_numeros_reales.html` | Práctica autocorregible de la clase 1: clasificar números, leer decimales, ordenar en la recta y encajar raíces entre enteros. 32 preguntas con explicación inmediata y marcador. |
+| `actividad_cine_mathmagic_land.md` | **Expediente Φ**: guía completa de la actividad de cine y matemáticas para noveno, a partir de *El Pato Donald en el mundo de las matemáticas*. Trae el guión del docente, las cinco pausas de la película y el minutaje de la sesión. |
+| `imprimibles/codice_mathmagic_land.html` | El **Códice** de esa actividad: el pliego que llena cada equipo durante la película. Dos hojas para el estudiante y una tercera con las cartas trampa y las respuestas. |
 | `imprimibles/clase_01_actividad_imprimible.html` | Taller de dos hojas para repartir en clase, con dibujos: el mapa de conjuntos, la recta numérica, una rejilla para colorear y el patio de don Hernán. Trae hoja de respuestas del docente. |
 
 Los dos se abren con doble clic; no hay que instalar nada ni tener internet.
@@ -39,3 +41,9 @@ Reglas para cuando se construyan:
 * El contenido de las preguntas debe salir de la clase correspondiente en `clases/`, para no tener dos versiones distintas del mismo ejercicio.
 
 Cada clase nueva puede tener su propio archivo, con el mismo nombre de la clase.
+
+## La actividad de cine
+
+`actividad_cine_mathmagic_land.md` es la única cosa del proyecto que **exige videobeam o televisor**. Todo lo demás funciona con tablero y cuaderno. Antes de programarla hay que confirmar la proyección y descargar la película: dura 27 minutos y la sesión completa toma entre 90 y 120.
+
+Del Códice se imprimen las **páginas 1 y 2** para los estudiantes, una por equipo de cuatro. La página 3 es del docente y trae las cartas trampa recortables y todas las respuestas.

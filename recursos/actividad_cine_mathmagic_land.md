@@ -7,7 +7,7 @@ Este archivo vive en `recursos/` y no en `clases/` porque no sigue la plantilla 
 
 ## A. Concepto general de la experiencia
 
-La película no se ve: **se recorre**. Donald atraviesa cinco territorios de Mathmagic Land y en cada uno hay un número escondido. Los estudiantes son un equipo de exploradores que va levantando un **Códice**, un solo pliego de papel que se llena zona por zona mientras avanza la película. Al final aparece una puerta cerrada —que en la película Donald no puede abrir— y el curso sí la abre, porque el código es el número que llevan cuatro pausas midiendo sin saberlo: **1,618…**
+La película no se ve: **se recorre**. Donald atraviesa cinco territorios de Mathmagic Land y en cada uno hay un número escondido. Los estudiantes son un equipo de exploradores que va levantando un **Códice**, un cuadernillo de tres hojas que se llena zona por zona mientras avanza la película. Al final aparece una puerta cerrada —que en la película Donald no puede abrir— y el curso sí la abre, porque el código es el número que llevan cuatro pausas midiendo sin saberlo: **1,618…**
 
 Por qué funciona en noveno:
 
@@ -31,12 +31,12 @@ Por qué funciona en noveno:
 
 **Elección de mecánica y por qué.** Se descartó la competencia de velocidad (castiga a quien piensa despacio y premia a quien ya sabía), el cuestionario con puntos (es un taller disfrazado) y el escape room completo (exige un montaje que ningún docente alcanza a armar un martes). Se eligió una **bitácora física progresiva con sellos**, porque:
 
-* es **un solo papel por equipo**: el docente reparte una hoja y ya, sin aplicaciones ni cables;
+* es **un solo cuadernillo por equipo**: el docente reparte tres hojas grapadas y ya, sin aplicaciones ni cables;
 * lo que se construye **queda a la vista** sobre el puesto, así que el avance se siente;
 * el reto final **necesita** lo escrito en los retos anteriores, y eso es imposible de fingir;
 * los sellos premian la **explicación**, no la rapidez, y eso cambia el comportamiento del grupo desde la primera pausa.
 
-**Cómo funciona, en tres frases.** Cada equipo recibe el Códice, un pliego con cinco zonas vacías y una puerta cerrada al final. Cuando la película se detiene, el equipo tiene entre 6 y 9 minutos para resolver la zona correspondiente y llenarla; el docente pasa, revisa y estampa de 1 a 3 sellos según qué tan bien puedan **explicar** lo que hicieron. Al terminar la película, la puerta solo abre con un número que se deduce leyendo las zonas ya completadas.
+**Cómo funciona, en tres frases.** Cada equipo recibe el Códice, un cuadernillo con cinco zonas vacías y una puerta cerrada al final. Cuando la película se detiene, el equipo tiene entre 6 y 9 minutos para resolver la zona correspondiente y llenarla; el docente pasa, revisa y estampa de 1 a 3 sellos según qué tan bien puedan **explicar** lo que hicieron. Al terminar la película, la puerta solo abre con un número que se deduce leyendo las zonas ya completadas.
 
 **Equipos.** Grupos de 4. Roles que se anuncian antes de empezar y **rotan en cada pausa**:
 
@@ -67,7 +67,7 @@ Los minutos son aproximados: hay copias que arrancan con logo y quedan corridas 
 |---|---|---|---|---|---|
 | **Pausa 1 — min ≈8:30.** Donald toca música con Pitágoras; se vieron cuerdas de distinta longitud sonando en armonía. | Razón y proporción. La fracción como comparación, no como reparto. | ¿Qué longitud debe tener la cuerda para que suene una octava más alta? ¿Y qué pasa si toda la lira fuera del doble de grande? | Miden y doblan tiras de papel en las razones 1:2, 2:3 y 3:4. | Zona 1: tres tiras pegadas con su fracción escrita. | 8 min |
 | **Pausa 2 — min ≈13:00.** Apareció el pentagrama de la sociedad de Pitágoras y luego el rectángulo áureo sobre el Partenón y la pintura. | Polígono regular, diagonal y lado, semejanza, cociente constante. | Midan diagonal y lado del pentagrama impreso y divídanlas. Ahora repitan con el pentagrama pequeño que quedó adentro. | Miden en milímetros, dividen, comparan los dos cocientes. | Zona 2: dos cocientes, ambos ≈1,61, y una frase. | 9 min |
-| **Pausa 3 — min ≈16:00.** Terminó la sección de la naturaleza: flores de cinco pétalos, estrella de mar, espirales de caracol, figura humana. | Medición con error, promedio, **evaluación crítica de una afirmación**. | Mídanse ustedes: estatura ÷ altura del ombligo. Y decidan cuál de tres afirmaciones sobre ese número es falsa. | Miden a dos compañeros, promedian, discuten la carta trampa. | Zona 3: dos cocientes propios y la afirmación falsa tachada, con su razón. | 9 min |
+| **Pausa 3 — min ≈16:00.** Terminó la sección de la naturaleza: flores de cinco pétalos, estrella de mar, espirales de caracol, figura humana. | Medición con error, promedio, **evaluación crítica de una afirmación**. | Mídanse ustedes: estatura ÷ altura del ombligo. Y decidan cuál de tres afirmaciones sobre ese número es falsa. | Miden a dos o tres compañeros, promedian, discuten la carta trampa. | Zona 3: dos cocientes propios y la afirmación falsa tachada, con su razón. | 9 min |
 | **Pausa 4 — min ≈21:00.** Donald juega billar a tres bandas y el narrador explica el sistema de los diamantes. | Modelo lineal, reflexión de trayectorias, despeje de una incógnita. | Con la regla "salida − objetivo = puntería": salgo del 4 y quiero llegar al 1, ¿a qué apunto? Y al revés: apunté al 2 y llegué al 1, ¿de dónde salí? | Trazan las dos trayectorias con regla sobre la mesa impresa. | Zona 4: dos trayectorias trazadas y la ecuación despejada. | 8 min |
 | **Pausa 5 — min ≈24:00.** La mente de Donald quedó despejada; un círculo girando formó una esfera, un triángulo un cono, un rectángulo un cilindro. | Pensamiento espacial: de dos dimensiones a tres por revolución. | ¿Qué sólido genera cada figura al girar? ¿Y qué objeto real de su casa se fabrica exactamente así? | Dibujan el sólido y nombran el objeto. | Zona 5: tres sólidos dibujados y tres objetos reales. | 6 min |
 | **Final — después del min 27.** La puerta cerrada del conocimiento. Donald se queda afuera. | Números irracionales, ecuación cuadrática, generalización a partir de datos propios. | Cuatro zonas dieron el mismo número. Escríbanlo con tres decimales y demuestren que no es casualidad: resuelvan $`x^2 = x + 1`$. | Releen su Códice, promedian, resuelven la cuadrática y comparan. | La Puerta abierta: el número y la solución de la ecuación. | 15 min |
@@ -102,7 +102,7 @@ Cinco pausas en veintisiete minutos de película. Es el punto donde la experienc
 
 1. **Qué acaba de ocurrir.** Flores de cinco pétalos, estrella de mar, la espiral del nautilo y la proporción en la figura humana.
 2. **Concepto.** Medición con error, el promedio como forma de reducirlo, y evaluación crítica de una afirmación.
-3. **Reto A, para todos.** Midan a dos integrantes del equipo: estatura completa y altura del ombligo al piso. Dividan. **Reto B, la carta trampa.** El docente entrega una tarjeta con tres afirmaciones; una es falsa:
+3. **Reto A, para todos.** Midan a dos o tres integrantes del equipo: estatura completa y altura del ombligo al piso. Dividan. **Reto B, la carta trampa.** El docente entrega una tarjeta con tres afirmaciones; una es falsa:
    * "La diagonal de un pentágono regular dividida por su lado da siempre el mismo número." — verdadera.
    * "Todas las espirales de la naturaleza son espirales áureas." — **falsa**.
    * "El número áureo es irracional: sus decimales no terminan ni se repiten." — verdadera.
@@ -152,7 +152,7 @@ Cinco pausas en veintisiete minutos de película. Es el punto donde la experienc
 
 ## F. El producto: el Códice
 
-Cada equipo recibe **un solo pliego** al empezar, impreso por ambas caras. Está dividido así:
+Cada equipo recibe **un solo cuadernillo** al empezar: tres hojas A4 grapadas por la esquina. Está dividido así:
 
 * **Encabezado.** Nombre del equipo, los cuatro integrantes y un recuadro para los sellos.
 * **Zona 1, La cuerda.** Un espacio en blanco para pegar las tres tiras y tres renglones para las fracciones.
@@ -164,7 +164,7 @@ Cada equipo recibe **un solo pliego** al empezar, impreso por ambas caras. Está
 
 Lo importante del diseño: **la Puerta está impresa desde el minuto cero**, visible y vacía. Los estudiantes la ven al recibir la hoja y no saben qué va ahí. Eso es lo que le da tensión narrativa a la sesión en vez de ser cinco ejercicios seguidos.
 
-El imprimible está en `recursos/imprimibles/codice_mathmagic_land.html`.
+El imprimible está en `recursos/imprimibles/codice_mathmagic_land.html` y su versión ya paginada en `recursos/imprimibles/codice_mathmagic_land.pdf`. Son cuatro páginas: **las tres primeras son del equipo y la cuarta es del docente**, con las cartas trampa recortables y las respuestas.
 
 ## G. Guion del docente
 
@@ -236,7 +236,7 @@ Del docente:
 
 Por equipo de 4:
 
-* Un Códice impreso.
+* Un Códice impreso: páginas 1 a 3 del PDF, grapadas.
 * **Regla de 30 cm con milímetros.** Es el material más importante de la sesión.
 * Una tira de papel de 24 cm (se corta del borde de una hoja).
 * Pegante en barra o cinta; tijeras si hay.
@@ -320,7 +320,7 @@ Los minutos de la tabla son acumulados desde el comienzo de la clase.
 **Antes de la clase**
 
 1. Probar la película con sonido en el salón donde se va a dictar, no en otro.
-2. Imprimir un Códice y una carta trampa por equipo.
+2. Imprimir un Códice por equipo (páginas 1 a 3 del PDF) y recortar una carta trampa por equipo de la página 4.
 3. Conseguir reglas con milímetros. Si faltan, pedirlas prestadas el día anterior.
 4. Escribir en un papel y pegarlo al computador: **8:30 — 13:00 — 16:00 — 21:00 — 24:00**.
 5. Dejar escrito en una esquina del tablero, tapado: $`x^2 = x + 1`$.

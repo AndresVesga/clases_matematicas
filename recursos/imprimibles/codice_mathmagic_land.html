@@ -6,88 +6,88 @@
 <style>
   @page{ size:A4; margin:12mm 13mm; }
   *{box-sizing:border-box}
+  html,body{-webkit-print-color-adjust:exact; print-color-adjust:exact}
   body{
     margin:0; background:#e9ecf1; color:#111;
-    font-family:Cambria,Georgia,"Times New Roman",serif; font-size:10.5pt; line-height:1.35;
+    font-family:Cambria,Georgia,"Times New Roman",serif; font-size:10pt; line-height:1.3;
   }
   .hoja{
-    width:210mm; min-height:297mm; margin:14px auto; padding:12mm 13mm;
+    width:210mm; height:297mm; overflow:hidden; margin:14px auto; padding:12mm 13mm;
     background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.16);
   }
-  h1{font-size:16pt; margin:0 0 2px}
-  .lema{font-size:9.5pt; color:#555; margin:0 0 10px; font-style:italic}
+  h1{font-size:15.5pt; margin:0 0 2px}
+  .lema{font-size:9pt; color:#555; margin:0 0 8px; font-style:italic}
   .datos{
-    display:flex; gap:14px; font-size:9pt; color:#333;
-    border:1px solid #bbb; border-radius:5px; padding:6px 9px; margin-bottom:10px;
+    display:flex; gap:12px; font-size:8.5pt; color:#333;
+    border:1px solid #bbb; border-radius:5px; padding:5px 8px; margin-bottom:8px;
   }
   .datos span{flex:1; border-bottom:1px dotted #999; padding-bottom:2px}
   .sellos{
-    border:1.5px solid #222; border-radius:5px; padding:5px 8px; margin-bottom:12px;
-    font-size:8.5pt; font-family:"Segoe UI",sans-serif; color:#333;
+    border:1.5px solid #222; border-radius:5px; padding:5px 8px; margin-bottom:10px;
+    font-size:8pt; font-family:"Segoe UI",sans-serif; color:#333; line-height:1.25;
   }
-  .sellos table{border-collapse:collapse; width:100%; margin-top:4px}
-  .sellos td{border:1px solid #999; height:11mm; text-align:center; font-size:8pt; color:#888}
-  .sellos td.rot{width:16%}
+  .sellos table{border-collapse:collapse; width:100%; margin:3px 0}
+  .sellos th{border:1px solid #999; height:5.5mm; font-size:7.5pt; font-weight:600; background:#f4f6fa}
+  .sellos td{border:1px solid #999; height:10mm; width:16.6%}
+  .lin{border-bottom:1px solid #999; display:inline-block; width:22mm}
   h2{
-    font-size:11.5pt; margin:14px 0 5px; padding-bottom:3px;
+    font-size:11pt; margin:11px 0 4px; padding-bottom:3px;
     border-bottom:1.5px solid #222; display:flex; align-items:baseline; gap:8px;
   }
+  h2:first-child{margin-top:0}
   h2 em{
-    font-style:normal; background:#222; color:#fff; font-size:8.5pt;
+    font-style:normal; background:#222; color:#fff; font-size:8pt;
     padding:1px 7px; border-radius:9px; font-family:"Segoe UI",sans-serif;
   }
-  .consigna{margin:0 0 6px; font-size:10pt}
-  .renglon{border-bottom:1px dotted #888; display:inline-block; min-width:52px}
-  .renglones div{border-bottom:1px dotted #999; height:17px; margin-top:8px}
-  .caja{border:1px dashed #888; border-radius:5px; min-height:34mm; padding:5px 8px; margin:6px 0}
-  .caja .nota{font-size:8.5pt; color:#888; font-family:"Segoe UI",sans-serif}
-  .fila{display:flex; gap:12px; align-items:flex-start}
+  .consigna{margin:0 0 5px; font-size:9.5pt}
+  .renglon{border-bottom:1px dotted #888; display:inline-block; min-width:48px}
+  .renglones div{border-bottom:1px dotted #999; height:15px; margin-top:7px}
+  .caja{border:1px dashed #888; border-radius:5px; padding:4px 8px; margin:5px 0}
+  .caja .nota{font-size:8pt; color:#999; font-family:"Segoe UI",sans-serif}
+  .fila{display:flex; gap:11px; align-items:flex-start}
   .fila > *{min-width:0}
-  figure{margin:4px 0 6px; text-align:center}
-  figcaption{font-size:8.5pt; color:#555; margin-top:2px}
-  table.med{border-collapse:collapse; width:100%; font-size:9.5pt; margin:5px 0}
-  table.med th,table.med td{border:1px solid #777; padding:4px 6px; text-align:center; height:9mm}
-  table.med th{background:#f2f4f8; font-family:"Segoe UI",sans-serif; font-size:8.5pt}
+  figure{margin:3px 0 5px; text-align:center}
+  figcaption{font-size:8pt; color:#555; margin-top:2px}
+  table.med{border-collapse:collapse; width:100%; font-size:9pt; margin:4px 0}
+  table.med th,table.med td{border:1px solid #777; padding:3px 6px; text-align:center; height:8.5mm}
+  table.med th{background:#f2f4f8; font-family:"Segoe UI",sans-serif; font-size:8pt; font-weight:600}
+  table.med th.izq{text-align:left}
   .plus{
     background:#fdf6e3; border-left:3px solid #c8a63a; padding:5px 9px;
-    font-size:9pt; margin:6px 0;
+    font-size:8.5pt; margin:5px 0;
   }
-  .plus b{font-family:"Segoe UI",sans-serif; font-size:8.5pt; letter-spacing:.03em}
-  .puerta{border:2px solid #222; border-radius:6px; padding:10px 14px; margin-top:8px}
-  .codigo{display:flex; gap:6px; justify-content:center; margin:8px 0}
-  .codigo span{
-    width:15mm; height:17mm; border:1.5px solid #222; border-radius:4px;
-    display:inline-block;
-  }
-  .coma{width:6mm !important; border:none !important; align-self:flex-end;
-        font-size:20pt; line-height:.8}
+  .plus b{font-family:"Segoe UI",sans-serif; font-size:8pt; letter-spacing:.03em}
+  .puerta{border:2px solid #222; border-radius:6px; padding:9px 13px; margin-top:10px}
+  .codigo{display:flex; gap:6px; justify-content:center; align-items:flex-end; margin:8px 0}
+  .codigo span{width:15mm; height:17mm; border:1.5px solid #222; border-radius:4px}
+  .codigo span.coma{width:6mm; border:none; font-size:20pt; line-height:.7; text-align:center}
   .pie{
-    margin-top:12px; padding-top:5px; border-top:1px solid #ccc;
+    margin-top:10px; padding-top:5px; border-top:1px solid #ccc;
     font-size:8pt; color:#777; font-family:"Segoe UI",sans-serif;
   }
   .docente{background:#f4f6fa}
   .docente h1{color:#1f3b57}
-  .aviso{background:#eef1f6; border-left:3px solid #666; padding:6px 10px; font-size:9pt; margin:7px 0}
-  .carta{
-    border:1.5px dashed #444; border-radius:6px; padding:8px 11px; margin:7px 0; font-size:9.5pt;
-  }
-  .carta b{font-family:"Segoe UI",sans-serif; font-size:9pt}
+  .docente p{margin:5px 0}
+  .aviso{background:#e6eaf2; border-left:3px solid #666; padding:5px 9px; font-size:8.5pt; margin:6px 0}
+  .carta{border:1.5px dashed #444; border-radius:6px; padding:6px 10px; margin:5px 0; font-size:9pt; background:#fff}
+  .carta b{font-family:"Segoe UI",sans-serif; font-size:8.5pt}
+  .carta ol{margin:3px 0 0 16px; padding:0}
   .imprimir{
-    display:block; margin:14px auto 0; font-family:"Segoe UI",sans-serif;
+    display:block; margin:14px auto 24px; font-family:"Segoe UI",sans-serif;
     background:#2f5fd0; color:#fff; border:none; padding:9px 20px;
     border-radius:7px; font-size:11px; cursor:pointer;
   }
   @media print{
     body{background:#fff}
-    .hoja{width:auto; min-height:0; margin:0; padding:0; box-shadow:none; page-break-after:always}
-    .hoja:last-of-type{page-break-after:auto}
+    .hoja{width:auto; height:auto; margin:0; padding:0; box-shadow:none; break-after:page}
+    .hoja:last-of-type{break-after:auto}
     .imprimir{display:none}
   }
 </style>
 </head>
 <body>
 
-<!-- ============ HOJA 1 ============ -->
+<!-- ============ HOJA 1 · ZONAS 1 y 2 ============ -->
 <section class="hoja">
   <h1>Expediente Φ · El Códice de Mathmagic Land</h1>
   <p class="lema">Grabación de 1959. Un pato entró, lo recorrió todo y no pudo abrir la última puerta. Ustedes van a averiguar por qué.</p>
@@ -97,175 +97,188 @@
   </div>
 
   <div class="sellos">
-    SELLOS · uno por resultado, dos si se ve el procedimiento, tres si el vocero convence.
+    SELLOS · uno por tener el resultado · dos si se ve el procedimiento · tres si el vocero convence.
     <table>
       <tr>
-        <td class="rot">Zona 1</td><td class="rot">Zona 2</td><td class="rot">Zona 3</td>
-        <td class="rot">Zona 4</td><td class="rot">Zona 5</td><td class="rot">La Puerta</td>
+        <th>Zona 1</th><th>Zona 2</th><th>Zona 3</th><th>Zona 4</th><th>Zona 5</th><th>La Puerta</th>
       </tr>
       <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
-    Comodín «Pitágoras» (uno para toda la sesión): <span style="border-bottom:1px solid #999; display:inline-block; width:24mm">&nbsp;</span>
-    &nbsp;&nbsp; Sellos dorados Φ+: <span style="border-bottom:1px solid #999; display:inline-block; width:24mm">&nbsp;</span>
+    Comodín «Pitágoras» (uno para toda la sesión): <span class="lin"></span>
+    &nbsp;&nbsp;&nbsp; Sellos dorados Φ+: <span class="lin"></span>
   </div>
 
   <h2><em>ZONA 1</em> La cuerda de Pitágoras</h2>
-  <p class="consigna">Tienen una tira de papel de <b>24 cm</b>: es la cuerda entera. Doblen o corten tiras que midan la mitad, dos tercios y tres cuartos de esa cuerda. Péguenlas abajo, una debajo de otra, y escriban al lado la razón.</p>
-  <div class="caja">
-    <span class="nota">Pegar aquí las tres tiras. A la derecha de cada una, escribir la fracción y los centímetros.</span>
+  <p class="consigna">Tienen una tira de papel de <b>24 cm</b>: es la cuerda entera. Doblen o corten tiras que midan la mitad, dos tercios y tres cuartos de esa cuerda. Péguenlas abajo, una debajo de otra, y escriban al lado la fracción y los centímetros. Si alguna no cabe a lo ancho, dóblenla.</p>
+  <div class="caja" style="height:31mm">
+    <span class="nota">Pegar aquí las tres tiras.</span>
   </div>
   <p class="consigna"><b>La pregunta:</b> si la lira de Pitágoras fuera del doble de grande, con una cuerda entera de 48 cm, ¿sonaría distinta la música? Contesten y digan por qué.</p>
   <div class="renglones"><div></div><div></div></div>
 
   <h2><em>ZONA 2</em> La estrella prohibida</h2>
-  <p class="consigna">Midan <b>en milímetros</b> los segmentos gruesos: <b>D</b> (diagonal) y <b>L</b> (lado). Divídanlos. Repitan con la estrella pequeña que quedó adentro: <b>d</b> y <b>ℓ</b>.</p>
+  <p class="consigna">Midan <b>en milímetros</b> los segmentos gruesos de la estrella grande: <b>D</b> (diagonal, azul) y <b>L</b> (lado, rojo). Repitan con la estrella pequeña de adentro: <b>d</b> y <b>ℓ</b>. Después dividan.</p>
 
   <div class="fila">
-    <figure style="flex:0 0 112mm">
-      <svg viewBox="-165 -170 330 320" width="110mm" role="img" aria-label="Pentágono regular con su pentagrama">
-        <!-- pentagono exterior -->
+    <figure style="flex:0 0 100mm; margin-top:0">
+      <svg viewBox="-165 -170 330 320" width="100mm" role="img" aria-label="Pentágono regular con su pentagrama">
         <polygon points="0,-150 142.658,-46.353 88.168,121.353 -88.168,121.353 -142.658,-46.353"
                  fill="none" stroke="#333" stroke-width="1.6"/>
-        <!-- estrella exterior -->
         <polygon points="0,-150 88.168,121.353 -142.658,-46.353 142.658,-46.353 -88.168,121.353"
                  fill="none" stroke="#333" stroke-width="1.6"/>
-        <!-- diagonales del pentagono interior (estrella pequeña) -->
         <polygon points="0,57.296 -33.676,-46.353 54.490,17.706 -54.490,17.706 33.676,-46.353"
-                 fill="none" stroke="#888" stroke-width="1.1" stroke-dasharray="5 4"/>
-        <!-- L: lado exterior (base) -->
+                 fill="none" stroke="#999" stroke-width="1" stroke-dasharray="5 4"/>
         <line x1="-88.168" y1="121.353" x2="88.168" y2="121.353" stroke="#c0392b" stroke-width="4.5"/>
-        <text x="0" y="141" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="17" fill="#c0392b">L</text>
-        <!-- D: diagonal exterior -->
+        <text x="0" y="142" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="18" fill="#c0392b">L</text>
         <line x1="-142.658" y1="-46.353" x2="142.658" y2="-46.353" stroke="#1f4fa3" stroke-width="4.5"/>
-        <text x="152" y="-51" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="17" fill="#1f4fa3">D</text>
-        <!-- l: lado interior -->
+        <text x="153" y="-52" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="18" fill="#1f4fa3">D</text>
         <line x1="-54.490" y1="17.706" x2="-33.676" y2="-46.353" stroke="#c0392b" stroke-width="3"/>
-        <text x="-59" y="-14" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="15" fill="#c0392b">&#8467;</text>
-        <!-- d: diagonal interior -->
+        <text x="-60" y="-15" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#c0392b">&#8467;</text>
         <line x1="-54.490" y1="17.706" x2="54.490" y2="17.706" stroke="#1f4fa3" stroke-width="3"/>
-        <text x="0" y="33" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="15" fill="#1f4fa3">d</text>
+        <text x="0" y="34" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="16" fill="#1f4fa3">d</text>
       </svg>
       <figcaption>Estrella grande: D y L. Estrella pequeña: d y &#8467;.</figcaption>
     </figure>
 
     <div style="flex:1">
       <table class="med">
-        <tr><th></th><th>Diagonal (mm)</th><th>Lado (mm)</th><th>Diagonal ÷ Lado</th></tr>
-        <tr><th>Estrella grande</th><td></td><td></td><td></td></tr>
-        <tr><th>Estrella pequeña</th><td></td><td></td><td></td></tr>
+        <tr><th class="izq">Estrella grande · D</th><td></td><th style="width:12mm">mm</th></tr>
+        <tr><th class="izq">Estrella grande · L</th><td></td><th>mm</th></tr>
+        <tr><th class="izq" style="background:#e6eaf2">D ÷ L</th><td colspan="2" style="background:#fafafa"></td></tr>
+        <tr><th class="izq">Estrella pequeña · d</th><td></td><th>mm</th></tr>
+        <tr><th class="izq">Estrella pequeña · &#8467;</th><td></td><th>mm</th></tr>
+        <tr><th class="izq" style="background:#e6eaf2">d ÷ &#8467;</th><td colspan="2" style="background:#fafafa"></td></tr>
       </table>
-      <p class="consigna" style="margin-top:8px"><b>Escriban una frase que empiece así:</b> «Pasa que…»</p>
-      <div class="renglones"><div></div><div></div><div></div></div>
+      <p class="consigna" style="margin-top:7px"><b>Escriban una frase que empiece así:</b> «Pasa que…»</p>
+      <div class="renglones"><div></div><div></div></div>
     </div>
   </div>
 
-  <div class="plus">
-    <b>RETO Φ+</b> — Uno solo de estos cuatro rectángulos es especial: al dividir su lado largo entre el corto da el mismo número de arriba. Encuéntrenlo <i>midiendo</i>, no mirando. Escriban los cuatro cocientes.
-    <div style="margin-top:6px">
-      <svg viewBox="0 0 262 46" width="175mm" role="img" aria-label="Cuatro rectángulos">
-        <rect x="1" y="4" width="70" height="40" fill="none" stroke="#333" stroke-width="1"/>
-        <text x="36" y="1.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">1</text>
-        <rect x="76" y="4" width="60" height="40" fill="none" stroke="#333" stroke-width="1"/>
-        <text x="106" y="1.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">2</text>
-        <rect x="141" y="4" width="64.7" height="40" fill="none" stroke="#333" stroke-width="1"/>
-        <text x="173" y="1.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">3</text>
-        <rect x="210" y="4" width="51" height="40" fill="none" stroke="#333" stroke-width="1"/>
-        <text x="235" y="1.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">4</text>
-      </svg>
-    </div>
-    1) <span class="renglon">&nbsp;</span> &nbsp; 2) <span class="renglon">&nbsp;</span> &nbsp; 3) <span class="renglon">&nbsp;</span> &nbsp; 4) <span class="renglon">&nbsp;</span> &nbsp;&nbsp; El especial es el n.º <span class="renglon" style="min-width:24px">&nbsp;</span>
-  </div>
-
-  <p class="pie">Expediente Φ · Hoja 1 de 2 · Grado noveno</p>
+  <p class="pie">Expediente Φ · Hoja 1 de 3 · Grado noveno</p>
 </section>
 
-<!-- ============ HOJA 2 ============ -->
+<!-- ============ HOJA 2 · RETO Φ+, ZONAS 3 y 4 ============ -->
 <section class="hoja">
 
+  <h2><em>ZONA 2 · RETO Φ+</em> El rectángulo escondido</h2>
+  <div class="plus">
+    Uno solo de estos cuatro rectángulos es especial: al dividir su lado largo entre el corto da el mismo número que sacaron en la estrella. Encuéntrenlo <i>midiendo</i>, no mirando.
+    <div style="margin-top:5px; text-align:center">
+      <svg viewBox="0 0 262 48" width="172mm" role="img" aria-label="Cuatro rectángulos">
+        <rect x="1" y="6" width="70" height="40" fill="#fff" stroke="#333" stroke-width="1"/>
+        <text x="36" y="3.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">1</text>
+        <rect x="76" y="6" width="60" height="40" fill="#fff" stroke="#333" stroke-width="1"/>
+        <text x="106" y="3.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">2</text>
+        <rect x="141" y="6" width="64.7" height="40" fill="#fff" stroke="#333" stroke-width="1"/>
+        <text x="173" y="3.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">3</text>
+        <rect x="210" y="6" width="51" height="40" fill="#fff" stroke="#333" stroke-width="1"/>
+        <text x="235" y="3.5" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="5">4</text>
+      </svg>
+    </div>
+    <div style="margin-top:4px">
+      1) <span class="renglon">&nbsp;</span> &nbsp; 2) <span class="renglon">&nbsp;</span> &nbsp; 3) <span class="renglon">&nbsp;</span> &nbsp; 4) <span class="renglon">&nbsp;</span>
+      &nbsp;&nbsp;&nbsp; El especial es el n.º <span class="renglon" style="min-width:26px">&nbsp;</span>
+    </div>
+  </div>
+
   <h2><em>ZONA 3</em> El cuerpo y la mentira</h2>
-  <p class="consigna">Midan a dos integrantes del equipo, de pie y derechos, contra la pared. Estatura completa y altura del ombligo al piso. Todo en centímetros, con un decimal.</p>
+  <p class="consigna">Midan a dos o tres integrantes del equipo, de pie y derechos contra la pared. Estatura completa y altura del ombligo al piso, en centímetros con un decimal.</p>
   <table class="med">
     <tr><th>Persona</th><th>Estatura (cm)</th><th>Ombligo al piso (cm)</th><th>Estatura ÷ ombligo</th></tr>
     <tr><td></td><td></td><td></td><td></td></tr>
     <tr><td></td><td></td><td></td><td></td></tr>
-    <tr><th>Promedio del equipo</th><td colspan="2" style="background:#f7f7f7"></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td></tr>
+    <tr><th>Promedio del equipo</th><td colspan="2" style="background:#f4f4f4"></td><td></td></tr>
   </table>
-  <p class="consigna"><b>Carta trampa.</b> El docente les entrega tres afirmaciones. Una es falsa. Escriban cuál y, sobre todo, <b>por qué</b>.</p>
-  <div class="renglones"><div></div><div></div><div></div></div>
+  <p class="consigna" style="margin-top:6px"><b>Carta trampa.</b> El docente les entrega tres afirmaciones y una es falsa. Escriban cuál y, sobre todo, <b>por qué</b>.</p>
+  <div class="renglones"><div></div><div></div><div></div><div></div></div>
 
   <h2><em>ZONA 4</em> Tres bandas</h2>
   <p class="consigna">Regla del jugador de billar: <b>número de salida − número del objetivo = número al que se apunta</b>. Tracen con regla las dos trayectorias sobre la mesa.</p>
 
   <div class="fila">
-    <figure style="flex:0 0 112mm">
-      <svg viewBox="0 0 220 124" width="110mm" role="img" aria-label="Mesa de billar con diamantes numerados">
-        <rect x="10" y="10" width="200" height="104" fill="#fff" stroke="#2b6b3f" stroke-width="5"/>
-        <rect x="10" y="10" width="200" height="104" fill="none" stroke="#333" stroke-width="0.8"/>
-        <!-- diamantes banda superior 1..5 -->
-        <g font-family="Segoe UI,sans-serif" font-size="6" fill="#333" text-anchor="middle">
-          <polygon points="43,7.5 45,10 43,12.5 41,10" fill="#333"/><text x="43" y="5">1</text>
-          <polygon points="76,7.5 78,10 76,12.5 74,10" fill="#333"/><text x="76" y="5">2</text>
-          <polygon points="109,7.5 111,10 109,12.5 107,10" fill="#333"/><text x="109" y="5">3</text>
-          <polygon points="142,7.5 144,10 142,12.5 140,10" fill="#333"/><text x="142" y="5">4</text>
-          <polygon points="175,7.5 177,10 175,12.5 173,10" fill="#333"/><text x="175" y="5">5</text>
+    <figure style="flex:0 0 118mm; margin-top:0">
+      <svg viewBox="0 0 234 130" width="118mm" role="img" aria-label="Mesa de billar con diamantes numerados">
+        <rect x="14" y="13" width="200" height="104" fill="#fff" stroke="#2b6b3f" stroke-width="5"/>
+        <rect x="14" y="13" width="200" height="104" fill="none" stroke="#333" stroke-width="0.8"/>
+        <g font-family="Segoe UI,sans-serif" font-size="6.5" fill="#333" text-anchor="middle">
+          <polygon points="47,10.5 49,13 47,15.5 45,13" fill="#333"/><text x="47" y="7">1</text>
+          <polygon points="80,10.5 82,13 80,15.5 78,13" fill="#333"/><text x="80" y="7">2</text>
+          <polygon points="113,10.5 115,13 113,15.5 111,13" fill="#333"/><text x="113" y="7">3</text>
+          <polygon points="146,10.5 148,13 146,15.5 144,13" fill="#333"/><text x="146" y="7">4</text>
+          <polygon points="179,10.5 181,13 179,15.5 177,13" fill="#333"/><text x="179" y="7">5</text>
 
-          <polygon points="43,111.5 45,114 43,116.5 41,114" fill="#333"/><text x="43" y="122">1</text>
-          <polygon points="76,111.5 78,114 76,116.5 74,114" fill="#333"/><text x="76" y="122">2</text>
-          <polygon points="109,111.5 111,114 109,116.5 107,114" fill="#333"/><text x="109" y="122">3</text>
-          <polygon points="142,111.5 144,114 142,116.5 140,114" fill="#333"/><text x="142" y="122">4</text>
-          <polygon points="175,111.5 177,114 175,116.5 173,114" fill="#333"/><text x="175" y="122">5</text>
+          <polygon points="47,114.5 49,117 47,119.5 45,117" fill="#333"/><text x="47" y="126">1</text>
+          <polygon points="80,114.5 82,117 80,119.5 78,117" fill="#333"/><text x="80" y="126">2</text>
+          <polygon points="113,114.5 115,117 113,119.5 111,117" fill="#333"/><text x="113" y="126">3</text>
+          <polygon points="146,114.5 148,117 146,119.5 144,117" fill="#333"/><text x="146" y="126">4</text>
+          <polygon points="179,114.5 181,117 179,119.5 177,117" fill="#333"/><text x="179" y="126">5</text>
 
-          <polygon points="207.5,36 210,38 212.5,36 210,33.5" fill="#333"/><text x="217" y="40">1</text>
-          <polygon points="207.5,62 210,64 212.5,62 210,59.5" fill="#333"/><text x="217" y="66">2</text>
-          <polygon points="207.5,88 210,90 212.5,88 210,85.5" fill="#333"/><text x="217" y="92">3</text>
+          <polygon points="211.5,39 214,41 216.5,39 214,36.5" fill="#333"/><text x="225" y="43">1</text>
+          <polygon points="211.5,65 214,67 216.5,65 214,62.5" fill="#333"/><text x="225" y="69">2</text>
+          <polygon points="211.5,91 214,93 216.5,91 214,88.5" fill="#333"/><text x="225" y="95">3</text>
         </g>
-        <text x="110" y="62" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="6.5" fill="#bbb">tracen aquí</text>
+        <text x="114" y="67" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="7" fill="#c8c8c8">tracen aquí</text>
       </svg>
       <figcaption>Versión escolar simplificada del sistema de diamantes.</figcaption>
     </figure>
 
     <div style="flex:1">
       <p class="consigna"><b>a)</b> Salgo del diamante <b>4</b> y quiero llegar al <b>1</b>. ¿A qué diamante apunto?</p>
-      <div class="renglones"><div></div></div>
-      <p class="consigna" style="margin-top:8px"><b>b)</b> Apunté al <b>2</b> y llegué al <b>1</b>. ¿De qué diamante salí? Plantéenlo como ecuación y despejen.</p>
       <div class="renglones"><div></div><div></div></div>
+      <p class="consigna" style="margin-top:8px"><b>b)</b> Apunté al <b>2</b> y llegué al <b>1</b>. ¿De qué diamante salí? Plantéenlo como ecuación y despejen.</p>
+      <div class="renglones"><div></div><div></div><div></div></div>
       <div class="plus" style="margin-top:8px">
         <b>RETO Φ+</b> — Esta regla es solo una aproximación. ¿Qué cosa del mundo real no está dentro de la fórmula?
-        <div class="renglones"><div></div></div>
+        <div class="renglones"><div></div><div></div><div></div></div>
       </div>
     </div>
   </div>
 
+  <p class="pie">Expediente Φ · Hoja 2 de 3 · Grado noveno</p>
+</section>
+
+<!-- ============ HOJA 3 · ZONA 5 y LA PUERTA ============ -->
+<section class="hoja">
+
   <h2><em>ZONA 5</em> Lo que gira</h2>
   <p class="consigna">Cada figura gira sobre la línea punteada. Dibujen el sólido que genera y escriban un objeto real que se fabrique así.</p>
   <div class="fila">
-    <figure style="flex:1">
-      <svg viewBox="0 0 70 60" width="42mm" role="img" aria-label="Semicírculo con eje">
-        <line x1="35" y1="4" x2="35" y2="56" stroke="#888" stroke-width="0.8" stroke-dasharray="3 3"/>
-        <path d="M35,10 A20,20 0 0,1 35,50 Z" fill="#eef1f6" stroke="#333" stroke-width="1.2"/>
+    <figure style="flex:1; margin-top:0">
+      <svg viewBox="0 0 74 62" width="46mm" role="img" aria-label="Semicírculo con eje">
+        <line x1="37" y1="2" x2="37" y2="60" stroke="#888" stroke-width="0.9" stroke-dasharray="3 3"/>
+        <path d="M37,11 A20,20 0 0,1 37,51 Z" fill="#eef1f6" stroke="#333" stroke-width="1.2"/>
+        <text x="33" y="6" text-anchor="end" font-family="Segoe UI,sans-serif" font-size="5" fill="#888">eje</text>
       </svg>
       <figcaption>Figura A</figcaption>
-      <div class="caja" style="min-height:24mm"><span class="nota">sólido</span></div>
-      Objeto: <span class="renglon" style="min-width:34mm">&nbsp;</span>
+      <div class="caja" style="height:44mm"><span class="nota">sólido</span></div>
+      <div style="font-size:9pt; text-align:left">Objeto: <span class="renglon" style="min-width:28mm; vertical-align:baseline">&nbsp;</span></div>
     </figure>
-    <figure style="flex:1">
-      <svg viewBox="0 0 70 60" width="42mm" role="img" aria-label="Triángulo rectángulo con eje">
-        <line x1="35" y1="4" x2="35" y2="56" stroke="#888" stroke-width="0.8" stroke-dasharray="3 3"/>
-        <polygon points="35,10 35,50 60,50" fill="#eef1f6" stroke="#333" stroke-width="1.2"/>
+    <figure style="flex:1; margin-top:0">
+      <svg viewBox="0 0 74 62" width="46mm" role="img" aria-label="Triángulo rectángulo con eje">
+        <line x1="37" y1="2" x2="37" y2="60" stroke="#888" stroke-width="0.9" stroke-dasharray="3 3"/>
+        <polygon points="37,11 37,51 62,51" fill="#eef1f6" stroke="#333" stroke-width="1.2"/>
+        <text x="33" y="6" text-anchor="end" font-family="Segoe UI,sans-serif" font-size="5" fill="#888">eje</text>
       </svg>
       <figcaption>Figura B</figcaption>
-      <div class="caja" style="min-height:24mm"><span class="nota">sólido</span></div>
-      Objeto: <span class="renglon" style="min-width:34mm">&nbsp;</span>
+      <div class="caja" style="height:44mm"><span class="nota">sólido</span></div>
+      <div style="font-size:9pt; text-align:left">Objeto: <span class="renglon" style="min-width:28mm; vertical-align:baseline">&nbsp;</span></div>
     </figure>
-    <figure style="flex:1">
-      <svg viewBox="0 0 70 60" width="42mm" role="img" aria-label="Rectángulo con eje">
-        <line x1="35" y1="4" x2="35" y2="56" stroke="#888" stroke-width="0.8" stroke-dasharray="3 3"/>
-        <rect x="35" y="12" width="22" height="36" fill="#eef1f6" stroke="#333" stroke-width="1.2"/>
+    <figure style="flex:1; margin-top:0">
+      <svg viewBox="0 0 74 62" width="46mm" role="img" aria-label="Rectángulo con eje">
+        <line x1="37" y1="2" x2="37" y2="60" stroke="#888" stroke-width="0.9" stroke-dasharray="3 3"/>
+        <rect x="37" y="13" width="22" height="36" fill="#eef1f6" stroke="#333" stroke-width="1.2"/>
+        <text x="33" y="6" text-anchor="end" font-family="Segoe UI,sans-serif" font-size="5" fill="#888">eje</text>
       </svg>
       <figcaption>Figura C</figcaption>
-      <div class="caja" style="min-height:24mm"><span class="nota">sólido</span></div>
-      Objeto: <span class="renglon" style="min-width:34mm">&nbsp;</span>
+      <div class="caja" style="height:44mm"><span class="nota">sólido</span></div>
+      <div style="font-size:9pt; text-align:left">Objeto: <span class="renglon" style="min-width:28mm; vertical-align:baseline">&nbsp;</span></div>
     </figure>
+  </div>
+
+  <div class="plus" style="margin-top:8px">
+    <b>RETO Φ+</b> — Dibujen ustedes, en el recuadro, una figura plana que al girar sobre su eje genere un <b>vaso</b>. Marquen dónde está el eje.
+    <div class="caja" style="height:29mm; background:#fff; margin-top:5px"></div>
   </div>
 
   <div class="puerta">
@@ -275,17 +288,17 @@
       <span></span><span class="coma">,</span><span></span><span></span><span></span>
     </div>
     <p class="consigna"><b>Ahora convénzanme sin regla.</b> Resuelvan <b>x&sup2; = x + 1</b> con la fórmula cuadrática y escriban la solución positiva. Compárenla con lo que midieron.</p>
-    <div class="renglones"><div></div><div></div><div></div></div>
-    <p class="consigna" style="margin-top:8px"><b>Una sola frase, cada quien la suya, al respaldo:</b> ¿qué viste hoy que antes no veías?</p>
+    <div class="renglones"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <p class="consigna" style="margin-top:8px"><b>Una sola frase, cada quien la suya, al respaldo de esta hoja:</b> ¿qué viste hoy que antes no veías?</p>
   </div>
 
-  <p class="pie">Expediente Φ · Hoja 2 de 2 · Grado noveno</p>
+  <p class="pie">Expediente Φ · Hoja 3 de 3 · Grado noveno</p>
 </section>
 
-<!-- ============ HOJA 3 · DOCENTE ============ -->
+<!-- ============ HOJA 4 · DOCENTE ============ -->
 <section class="hoja docente">
   <h1>Hoja del docente · no se entrega a los estudiantes</h1>
-  <p class="lema">Imprima solo las páginas 1 y 2 para el curso. Esta es la tercera.</p>
+  <p class="lema">Imprima las páginas 1 a 3 para el curso, una por equipo de cuatro. Esta es la cuarta.</p>
 
   <div class="aviso">
     <b>Pausas de la película</b> (aproximadas; guíese por la escena, no por el reloj):
@@ -297,7 +310,7 @@
   <h2>Cartas trampa · recorte una por equipo</h2>
   <div class="carta">
     <b>CARTA TRAMPA</b> — Una de estas tres afirmaciones es falsa. ¿Cuál, y por qué?
-    <ol style="margin:5px 0 0 18px">
+    <ol>
       <li>La diagonal de un pentágono regular dividida entre su lado da siempre el mismo número.</li>
       <li>Todas las espirales que aparecen en la naturaleza son espirales áureas.</li>
       <li>El número áureo es irracional: sus decimales no terminan ni se repiten.</li>
@@ -305,7 +318,7 @@
   </div>
   <div class="carta">
     <b>CARTA TRAMPA</b> — Una de estas tres afirmaciones es falsa. ¿Cuál, y por qué?
-    <ol style="margin:5px 0 0 18px">
+    <ol>
       <li>La diagonal de un pentágono regular dividida entre su lado da siempre el mismo número.</li>
       <li>Todas las espirales que aparecen en la naturaleza son espirales áureas.</li>
       <li>El número áureo es irracional: sus decimales no terminan ni se repiten.</li>
@@ -313,14 +326,14 @@
   </div>
 
   <h2>Respuestas</h2>
-  <p><b>Zona 1.</b> Tiras de 12 cm, 16 cm y 18 cm; razones 1/2, 2/3 y 3/4. La música <b>no</b> cambia con una cuerda de 48 cm: lo que fija el sonido es la razón entre dos longitudes, no la longitud. Es la idea que sostiene toda la sesión.</p>
-  <p><b>Zona 2.</b> Estrella grande: D ≈ 98 mm, L ≈ 61 mm, cociente ≈ <b>1,61</b>. Estrella pequeña: d ≈ 37 mm, &#8467; ≈ 23 mm, cociente ≈ <b>1,61</b>. Se acepta cualquier valor entre 1,55 y 1,68. La frase buscada dice que las dos figuras son <b>semejantes</b>: misma forma, distinto tamaño, y por eso el cociente no cambia. No regale la palabra «semejanza»: espere a que salga del curso.<br>
+  <p><b>Zona 1.</b> Tiras de 12, 16 y 18 cm; razones 1/2, 2/3 y 3/4. La música <b>no</b> cambia con una cuerda de 48 cm: lo que fija el sonido es la razón entre dos longitudes, no la longitud. Es la idea que sostiene toda la sesión.</p>
+  <p><b>Zona 2.</b> Estrella grande: D ≈ 86 mm, L ≈ 53 mm, cociente ≈ <b>1,62</b>. Estrella pequeña: d ≈ 33 mm, &#8467; ≈ 20 mm, cociente ≈ <b>1,6</b>. Se acepta cualquier valor entre 1,55 y 1,70. La frase buscada dice que las dos figuras son <b>semejantes</b>: misma forma, distinto tamaño, y por eso el cociente no cambia. No regale la palabra «semejanza»: espere a que salga del curso.<br>
   <b>Reto Φ+:</b> los cocientes son 1,75 · 1,50 · <b>1,62</b> · 1,28. El especial es el <b>rectángulo 3</b>.</p>
   <p><b>Zona 3.</b> El cociente estatura ÷ ombligo suele caer entre 1,55 y 1,70, distinto en cada persona. Es normal que no dé exacto: medir tiene error, y por eso se promedia.<br>
   <b>Carta trampa:</b> la falsa es la <b>2</b>. La película muestra tres o cuatro casos bonitos, y mostrar casos no demuestra un «todas». Hay muchísimas espirales en la naturaleza que no son áureas, empezando por la del nautilo, que es logarítmica pero con otra razón de crecimiento. La frase que conviene dejar escrita en el tablero: <i>tres ejemplos no son una demostración</i>.</p>
   <p><b>Zona 4.</b> a) 4 − 1 = <b>3</b>. b) x − 1 = 2, luego <b>x = 3</b>.<br>
   <b>Reto Φ+:</b> el modelo ignora el efecto de la bola, el estado del paño, la fuerza del tiro y el desgaste de las bandas. Un modelo es una simplificación útil, no la verdad.</p>
-  <p><b>Zona 5.</b> A → <b>esfera</b> (balón, canica, rodamiento). B → <b>cono</b> (embudo, cono de tráfico, copa de helado). C → <b>cilindro</b> (lata, vaso, tarro, rodillo). Vale la pena decir que un torno fabrica exactamente así: gira un perfil plano.</p>
+  <p><b>Zona 5.</b> A → <b>esfera</b> (balón, canica, rodamiento). B → <b>cono</b> (embudo, cono de tráfico, copa de helado). C → <b>cilindro</b> (lata, vaso, tarro, rodillo). Vale la pena decir que un torno fabrica exactamente así: gira un perfil plano. En el reto Φ+ del vaso se espera un perfil en forma de U delgada o de L.</p>
   <p><b>La Puerta.</b> El número es <b>1,618</b>. La ecuación <b>x&sup2; = x + 1</b> se reescribe como <b>x&sup2; − x − 1 = 0</b> y da <b>x = (1 ± &radic;5) ÷ 2</b>; la solución positiva es <b>(1 + &radic;5) ÷ 2 = 1,6180339…</b> Es irracional, como los que se trabajaron en la unidad de números reales.</p>
   <div class="aviso">
     <b>De dónde sale esa ecuación</b>, por si el grupo va bien de tiempo. Si a un rectángulo áureo de lados x y 1 se le quita un cuadrado de lado 1, el rectángulo que sobra (lados 1 y x−1) es <b>semejante</b> al original. Eso se escribe <b>x ÷ 1 = 1 ÷ (x − 1)</b>, y de ahí sale <b>x&sup2; = x + 1</b>. Deducirlo en el tablero es el mejor uso posible de quince minutos extra.

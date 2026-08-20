@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>MUDO · Guion de doblaje</title>
+<style>
+  @page{ size:A4; margin:12mm 13mm; }
+  *{box-sizing:border-box}
+  html,body{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  body{
+    margin:0; background:#e9ecf1; color:#111;
+    font-family:Cambria,Georgia,"Times New Roman",serif; font-size:10pt; line-height:1.3;
+  }
+  .hoja{
+    width:210mm; height:297mm; overflow:hidden; margin:14px auto; padding:12mm 13mm;
+    background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.16);
+  }
+  h1{font-size:15.5pt; margin:0 0 2px}
+  .lema{font-size:9pt; color:#555; margin:0 0 8px; font-style:italic}
+  .datos{
+    display:flex; gap:12px; font-size:8.5pt; color:#333;
+    border:1px solid #bbb; border-radius:5px; padding:5px 8px; margin-bottom:7px;
+  }
+  .datos span{flex:1; border-bottom:1px dotted #999; padding-bottom:2px}
+  .control{
+    display:flex; gap:14px; align-items:center; border:1.5px solid #8e2b2b; border-radius:5px;
+    padding:6px 9px; margin-bottom:10px; font-family:"Segoe UI",sans-serif; font-size:8pt; color:#333;
+  }
+  .control b{color:#8e2b2b; letter-spacing:.04em}
+  .cajitas{display:inline-flex; gap:5px; vertical-align:middle}
+  .cajitas i{width:9mm; height:9mm; border:1.3px solid #8e2b2b; border-radius:3px; display:inline-block}
+
+  .ficha{border:1.3px solid #333; border-radius:6px; margin:0 0 8px; overflow:hidden}
+  .ficha > .barra{
+    background:#222; color:#fff; padding:3px 9px; font-family:"Segoe UI",sans-serif;
+    font-size:8.5pt; display:flex; align-items:baseline; gap:9px;
+  }
+  .barra em{font-style:normal; background:#8e2b2b; padding:1px 6px; border-radius:8px; font-size:7.5pt; letter-spacing:.05em}
+  .barra span{margin-left:auto; font-size:7.5pt; color:#bbb}
+  .cuerpo{padding:6px 9px}
+  .pista{font-size:8.5pt; color:#8e2b2b; font-style:italic; margin:0 0 5px}
+  .campo{font-family:"Segoe UI",sans-serif; font-size:7.5pt; color:#666; letter-spacing:.04em; margin:5px 0 0}
+  .renglones div{border-bottom:1px dotted #999; height:16px; margin-top:7px}
+  .dato{
+    background:#f6efef; border:1px solid #c9a3a3; border-radius:4px; padding:4px 8px 6px; margin:6px 0 0;
+  }
+  .dato .campo{color:#8e2b2b; margin-top:0}
+  .dato .renglones div{border-bottom:1px solid #b98f8f; margin-top:5px}
+
+  table.lista{border-collapse:collapse; width:100%; font-size:9pt; margin:5px 0}
+  table.lista th,table.lista td{border:1px solid #777; padding:4px 6px; height:11mm; text-align:left}
+  table.lista th{background:#f2f4f8; font-family:"Segoe UI",sans-serif; font-size:8pt; text-align:center}
+  table.lista td.si{width:26mm; text-align:center}
+
+  h2{
+    font-size:11pt; margin:12px 0 4px; padding-bottom:3px;
+    border-bottom:1.5px solid #222; display:flex; align-items:baseline; gap:8px;
+  }
+  h2:first-child{margin-top:0}
+  h2 em{
+    font-style:normal; background:#222; color:#fff; font-size:8pt;
+    padding:1px 7px; border-radius:9px; font-family:"Segoe UI",sans-serif;
+  }
+  .consigna{margin:0 0 5px; font-size:9.5pt}
+  .pie{
+    margin-top:9px; padding-top:5px; border-top:1px solid #ccc;
+    font-size:8pt; color:#777; font-family:"Segoe UI",sans-serif;
+  }
+  .docente{background:#f4f6fa}
+  .docente h1{color:#1f3b57}
+  .docente p{margin:4px 0; font-size:9.2pt}
+  .docente h2{margin:9px 0 3px; font-size:10.5pt}
+  .docente .consigna{font-size:9pt}
+  .aviso{background:#e6eaf2; border-left:3px solid #666; padding:5px 9px; font-size:8.5pt; margin:6px 0}
+  .alerta{background:#f6efef; border-left:3px solid #8e2b2b; padding:5px 9px; font-size:8.5pt; margin:6px 0}
+  table.tramos{border-collapse:collapse; width:100%; font-size:8.5pt; margin:5px 0}
+  table.tramos th,table.tramos td{border:1px solid #888; padding:3px 6px; text-align:left}
+  table.tramos th{background:#e6eaf2; font-family:"Segoe UI",sans-serif; font-size:8pt}
+  table.tramos td.min{width:24mm; text-align:center; font-family:"Segoe UI",sans-serif}
+  .imprimir{
+    display:block; margin:14px auto 24px; font-family:"Segoe UI",sans-serif;
+    background:#2f5fd0; color:#fff; border:none; padding:9px 20px;
+    border-radius:7px; font-size:11px; cursor:pointer;
+  }
+  @media print{
+    body{background:#fff}
+    .hoja{width:auto; height:auto; margin:0; padding:0; box-shadow:none; break-after:page}
+    .hoja:last-of-type{break-after:auto}
+    .imprimir{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HOJA 1 ============ -->
+<section class="hoja">
+  <h1>MUDO · Guion de doblaje</h1>
+  <p class="lema">El máster de 1959 se dañó. La imagen quedó completa; la voz del narrador, no. Ustedes la reponen.</p>
+
+  <div class="datos">
+    <span>Estudio:</span><span>Integrantes:</span><span>Fecha:</span>
+  </div>
+
+  <div class="control">
+    <span><b>TOMAS</b> · tres para toda la sesión &nbsp;<span class="cajitas"><i></i><i></i><i></i></span></span>
+    <span><b>CUÑA DEL ESCÉPTICO</b> · una &nbsp;<span class="cajitas"><i></i></span></span>
+    <span style="margin-left:auto; color:#8e2b2b"><b>SIN DATO DURO NO SE SALE AL AIRE</b></span>
+  </div>
+
+  <div class="ficha">
+    <div class="barra"><em>TRAMO 1</em> La estrella que se dibuja sola <span>polígonos</span></div>
+    <div class="cuerpo">
+      <p class="pista">Esa figura tiene por lo menos tres cosas que se pueden contar o comprobar con un lápiz. Consigan una.</p>
+      <p class="campo">QUÉ SE VE</p>
+      <div class="renglones"><div></div><div></div></div>
+      <div class="dato">
+        <p class="campo">DATO DURO — algo que el docente pueda comprobar</p>
+        <div class="renglones"><div></div></div>
+      </div>
+      <p class="campo">LA NARRACIÓN — máximo tres frases</p>
+      <div class="renglones"><div></div><div></div><div></div></div>
+    </div>
+  </div>
+
+  <div class="ficha">
+    <div class="barra"><em>TRAMO 2</em> La afirmación silenciosa <span>proporción</span></div>
+    <div class="cuerpo">
+      <p class="pista">La película acaba de afirmar algo sin decir una palabra. En «qué se ve» escriban la afirmación. En «dato duro», la medida que la comprobaría.</p>
+      <p class="campo">QUÉ SE VE · QUÉ ESTÁ AFIRMANDO</p>
+      <div class="renglones"><div></div><div></div></div>
+      <div class="dato">
+        <p class="campo">DATO DURO — qué habría que medir, y cuánto da</p>
+        <div class="renglones"><div></div></div>
+      </div>
+      <p class="campo">LA NARRACIÓN — máximo tres frases</p>
+      <div class="renglones"><div></div><div></div><div></div></div>
+    </div>
+  </div>
+
+  <div class="ficha">
+    <div class="barra"><em>TRAMO 3</em> Dos narradores <span>patrón y evidencia</span></div>
+    <div class="cuerpo">
+      <p class="pista">Las mismas imágenes, narradas dos veces. Las dos versiones tienen que ser ciertas: ninguna puede mentir.</p>
+      <p class="campo">QUÉ SE VE</p>
+      <div class="renglones"><div></div></div>
+      <div class="dato">
+        <p class="campo">DATO DURO</p>
+        <div class="renglones"><div></div></div>
+      </div>
+      <p class="campo">VERSIÓN DISNEY — fascinada</p>
+      <div class="renglones"><div></div><div></div></div>
+      <p class="campo">VERSIÓN ESCÉPTICA — no se deja convencer con cuatro fotos bonitas</p>
+      <div class="renglones"><div></div><div></div></div>
+      <p class="campo" style="margin-top:6px">EL DIRECTOR DOBLA LA VERSIÓN ______ PORQUE:</p>
+      <div class="renglones"><div></div></div>
+    </div>
+  </div>
+
+  <p class="pie">MUDO · Hoja 1 de 2 · Grado noveno</p>
+</section>
+
+<!-- ============ HOJA 2 ============ -->
+<section class="hoja">
+
+  <div class="ficha">
+    <div class="barra"><em>TRAMO 4</em> La regla escondida <span>modelo</span></div>
+    <div class="cuerpo">
+      <p class="pista">Ahí hay una regla y la película la está explicando ahora mismo. Ustedes no la van a oír. Está en los números.</p>
+      <p class="campo">LOS NÚMEROS QUE ALCANZAMOS A VER</p>
+      <div class="renglones"><div></div></div>
+      <div class="dato">
+        <p class="campo">DATO DURO — la regla, primero en palabras y después con letras</p>
+        <div class="renglones"><div></div><div></div></div>
+      </div>
+      <p class="campo">LA NARRACIÓN — máximo tres frases</p>
+      <div class="renglones"><div></div><div></div><div></div></div>
+    </div>
+  </div>
+
+  <div class="ficha">
+    <div class="barra"><em>TRAMO 5</em> Una sola frase <span>espacio</span></div>
+    <div class="cuerpo">
+      <p class="pista">Una frase. Una. Que sirva para los tres casos. Si tienen que decir «y también», perdieron.</p>
+      <div class="dato">
+        <p class="campo">LA FRASE</p>
+        <div class="renglones"><div></div><div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ficha" style="border-width:2.2px">
+    <div class="barra" style="background:#8e2b2b"><em style="background:#222">FINAL</em> La puerta que Donald no abre <span style="color:#e8c8c8">al aire</span></div>
+    <div class="cuerpo">
+      <p class="pista">Máximo 40 segundos. Obligatorio: usar por lo menos <b>tres datos duros</b> de las fichas anteriores. Anótenlos aquí antes de escribir.</p>
+      <p class="campo">LOS TRES DATOS QUE VAMOS A USAR</p>
+      <div class="renglones"><div></div></div>
+      <p class="campo">EL GUION DEL CIERRE</p>
+      <div class="renglones"><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+  </div>
+
+  <h2><em>AL RESPALDO</em> Lista de afirmaciones</h2>
+  <p class="consigna">Cada vez que la película afirme algo, anótenlo. No importa si están de acuerdo o no: importa qué mostró para probarlo.</p>
+  <table class="lista">
+    <tr><th>Lo que la película afirma</th><th>Qué mostró para probarlo</th><th class="si">¿Alcanza?</th></tr>
+    <tr><td></td><td></td><td class="si"></td></tr>
+    <tr><td></td><td></td><td class="si"></td></tr>
+    <tr><td></td><td></td><td class="si"></td></tr>
+    <tr><td></td><td></td><td class="si"></td></tr>
+  </table>
+
+  <p class="consigna" style="margin-top:8px"><b>Cada quien la suya, antes de entregar:</b> una cosa que la película afirmó y que yo no le creo del todo, y por qué.</p>
+  <div class="renglones"><div></div><div></div></div>
+
+  <p class="pie">MUDO · Hoja 2 de 2 · Grado noveno</p>
+</section>
+
+<!-- ============ HOJA 3 · DOCENTE ============ -->
+<section class="hoja docente">
+  <h1>Hoja del docente · no se entrega a los estudiantes</h1>
+  <p class="lema">Imprima las páginas 1 y 2 para el curso, un juego por estudio de cuatro. Esta es la tercera.</p>
+
+  <div class="alerta">
+    <b>Dos cosas que hay que resolver antes de entrar al salón.</b> Primera: tener el <b>mute a la mano</b> y probado, porque toda la actividad vive de silenciar y restaurar el audio en un segundo. Segunda: que la copia <b>no tenga subtítulos quemados</b> en la imagen; si los tiene, los estudiantes leen lo que no deben oír y la actividad se cae. Apáguelos en el reproductor o consiga otra copia.
+  </div>
+
+  <h2>Los cinco tramos</h2>
+  <p class="consigna">Minutos aproximados: varían con la copia. Vea la película antes y corrija estos números en su archivo.</p>
+  <table class="tramos">
+    <tr><th class="min">Minuto</th><th>Qué se ve</th><th>Dato duro esperado</th></tr>
+    <tr><td class="min">≈9:00–10:30</td><td>El pentagrama de la sociedad de Pitágoras</td><td>5 diagonales · 5 ejes de simetría · se dibuja de un solo trazo</td></tr>
+    <tr><td class="min">≈11:00–13:00</td><td>Rectángulos sobre el Partenón, catedrales y cuadros</td><td>El cociente de los lados, ≈1,6</td></tr>
+    <tr><td class="min">≈14:00–16:00</td><td>Flores, estrella de mar, espirales, figura humana</td><td>El número de pétalos o de brazos; el mismo ≈1,6</td></tr>
+    <tr><td class="min">≈18:30–21:00</td><td>Billar a tres bandas, con los diamantes numerados</td><td>salida − objetivo = puntería, o <b>s − o = p</b></td></tr>
+    <tr><td class="min">≈22:00–23:30</td><td>Figuras planas girando y formando sólidos</td><td>«Una figura plana que gira sobre su eje genera un sólido»</td></tr>
+    <tr><td class="min">≈24:00–final</td><td>El infinito de pentagramas, la puerta, la cita de Galileo</td><td>Tres datos reutilizados de las fichas anteriores</td></tr>
+  </table>
+
+  <h2>El bucle, que se repite en cada tramo</h2>
+  <p><b>1.</b> La película avanza con sonido. &nbsp; <b>2.</b> «Aquí empieza un tramo dañado»: quita el sonido. &nbsp; <b>3.</b> Se ve mudo, 60 a 120 segundos. &nbsp; <b>4.</b> Los estudios escriben la ficha. &nbsp; <b>5.</b> Un estudio dobla en vivo sobre la imagen muda. &nbsp; <b>6.</b> Se reproduce el tramo <b>con el audio original</b> y se compara. &nbsp; <b>7.</b> Sigue la película.</p>
+  <div class="aviso">
+    El paso 6 es el que sostiene todo. Nadie se queda sin la explicación, porque el narrador siempre termina hablando. Y la pregunta que hay que hacer después del audio no es «¿quién acertó?», sino <b>«¿quién dijo algo que el narrador no dijo, y era cierto?»</b>
+  </div>
+
+  <h2>Qué NO hacer</h2>
+  <p>No explicar un tramo antes de que lo trabajen: el audio original lo hace mejor y después. No corregir una narración en pleno doblaje; se aplaude y se sigue. No adelantar la palabra «áureo». Y en el tramo 4, aguantar el silencio incómodo sin salvarlos.</p>
+
+  <h2>Respuestas y notas</h2>
+  <p><b>Tramo 1.</b> Un pentágono regular tiene <b>5 diagonales</b> —la fórmula general es n(n−3)/2— y <b>5 ejes de simetría</b>. El pentagrama sí se dibuja de un solo trazo. Reto para el que va rápido: se puede porque a cada punta llegan 4 líneas, número par; en un cuadrado con sus dos diagonales llegan 3 a cada esquina, impar, y con más de dos puntos impares no hay trazo único.</p>
+  <p><b>Tramo 2.</b> La afirmación es que esos edificios y cuadros fueron <b>diseñados</b> con esa proporción. La imagen no lo demuestra: el rectángulo lo dibujó la película encima, siglos después. Conviene no resolverla, solo dejarla planteada.</p>
+  <p><b>Tramo 3.</b> Versión escéptica aceptable: «en algunas plantas y algunos animales aparece esa proporción; en estas imágenes se ven cuatro casos, y cuatro casos no son todos los casos». Lo que se busca es que <b>no</b> escriban «es mentira». La frase para el tablero: <i>cuatro casos no son todos los casos</i>.</p>
+  <p><b>Tramo 4.</b> La regla es <b>salida − objetivo = puntería</b>. Comprobación: saliendo del 4 para llegar al 1 se apunta al 3. Si ningún estudio la saca, mejor: la comparación con el audio original queda más fuerte. Después del audio, introducir la palabra <b>modelo</b> y señalar que ignora el efecto, el paño y la fuerza.</p>
+  <p><b>Tramo 5.</b> «Una figura plana que gira sobre su eje genera un sólido.» Círculo → esfera, triángulo → cono, rectángulo → cilindro. Un torno hace exactamente eso: así se fabrican las ollas, los vasos y las llantas.</p>
+
+  <h2>Premios Mathmagic</h2>
+  <p>Votación a mano alzada al final, cada estudio vota por otro y nunca por sí mismo: <b>Más exacto</b> (dijo cosas verdaderas y comprobables), <b>Más claro</b> (se lo habría explicado bien a Donald) y <b>Más honesto</b> (le señaló mejor una exageración a la película). Anuncie desde el principio que las tres valen igual: es lo que evita que gane el más carismático.</p>
+
+  <div class="aviso" style="margin-top:8px"><b>Cómo saber si funcionó.</b> No lo dice la votación. Lo dice si en el tramo 3 o 4 algún estudio usa la <b>cuña del escéptico</b> sin que usted la haya sugerido. Si no pasa, la causa casi siempre es que el tramo 2 se cerró muy rápido.</p></div>
+
+  <p class="pie">MUDO · Hoja del docente · La guía completa está en recursos/actividad_cine_mathmagic_land_plan_b.md</p>
+</section>
+
+<button class="imprimir" onclick="window.print()">Imprimir</button>
+</body>
+</html>
